@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08093BFC1607DA9900508730 /* KiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08093BFB1607DA9900508730 /* KiiSDK.framework */; };
+		08A420FF16168CCE00148A3A /* CBToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A420FE16168CCE00148A3A /* CBToolkit.framework */; };
 		08AA648616084B0500FDD06E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AA646716084B0500FDD06E /* AppDelegate.m */; };
 		08AA649616084B0500FDD06E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AA647B16084B0500FDD06E /* LoginViewController.m */; };
 		08AA649716084B0500FDD06E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AA647C16084B0500FDD06E /* LoginViewController.xib */; };
@@ -28,7 +29,6 @@
 		08AA64D916084BD600FDD06E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64D316084BD600FDD06E /* InfoPlist.strings */; };
 		08AA64DA16084BD600FDD06E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64D516084BD600FDD06E /* ViewController.xib */; };
 		08AA64DB16084BD600FDD06E /* HelloKii-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64D716084BD600FDD06E /* HelloKii-Info.plist */; };
-		08AA64EB1608539600FDD06E /* CBToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AA64EA1608539600FDD06E /* CBToolkit.framework */; };
 		08D0353D15FEF448000042FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D0353C15FEF448000042FB /* UIKit.framework */; };
 		08D0353F15FEF448000042FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D0353E15FEF448000042FB /* Foundation.framework */; };
 		08D0354115FEF448000042FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D0354015FEF448000042FB /* CoreGraphics.framework */; };
@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		08093BFB1607DA9900508730 /* KiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiSDK.framework; sourceTree = "<group>"; };
+		08A420FE16168CCE00148A3A /* CBToolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CBToolkit.framework; sourceTree = "<group>"; };
 		08AA646616084B0500FDD06E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08AA646716084B0500FDD06E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		08AA647A16084B0500FDD06E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		08AA64D416084BD600FDD06E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		08AA64D616084BD600FDD06E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ViewController.xib; sourceTree = "<group>"; };
 		08AA64D716084BD600FDD06E /* HelloKii-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HelloKii-Info.plist"; sourceTree = "<group>"; };
-		08AA64EA1608539600FDD06E /* CBToolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CBToolkit.framework; sourceTree = "<group>"; };
 		08D0353815FEF448000042FB /* HelloKii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloKii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D0353C15FEF448000042FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08D0353E15FEF448000042FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,7 +82,7 @@
 				08D0353F15FEF448000042FB /* Foundation.framework in Frameworks */,
 				08D0354115FEF448000042FB /* CoreGraphics.framework in Frameworks */,
 				08093BFC1607DA9900508730 /* KiiSDK.framework in Frameworks */,
-				08AA64EB1608539600FDD06E /* CBToolkit.framework in Frameworks */,
+				08A420FF16168CCE00148A3A /* CBToolkit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +164,7 @@
 		08D0353B15FEF448000042FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				08AA64EA1608539600FDD06E /* CBToolkit.framework */,
+				08A420FE16168CCE00148A3A /* CBToolkit.framework */,
 				08093BFB1607DA9900508730 /* KiiSDK.framework */,
 				08D035A315FF0474000042FB /* QuartzCore.framework */,
 				08D0356115FEF516000042FB /* MobileCoreServices.framework */,
