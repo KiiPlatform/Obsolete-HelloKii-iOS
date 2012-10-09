@@ -1,6 +1,6 @@
 //
-//  CBToast.h
-//  CBToolkit
+//  LoginViewController.h
+//  KiiWorld
 //
 //  Created by Chris Beauchamp on 9/10/12.
 //  Copyright (c) 2012 Chris Beauchamp. All rights reserved.

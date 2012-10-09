@@ -20,7 +20,7 @@
     // Initialize the Kii SDK!
     [Kii beginWithID:@"__KII_APP_ID__"
               andKey:@"__KII_APP_key__"
-             andSite:__KII_API_SITE__];
+             andSite:kiiSiteJP];
                 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 

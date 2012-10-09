@@ -1,6 +1,6 @@
 //
 //  CBDevice.h
-//  Moni
+//  CBToolkit
 //
 //  Created by Chris Beauchamp on 9/28/12.
 //  Copyright (c) 2012 Chris Beauchamp. All rights reserved.
