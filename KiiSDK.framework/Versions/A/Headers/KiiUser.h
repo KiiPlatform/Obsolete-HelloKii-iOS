@@ -23,9 +23,6 @@
 /** Username to use for authentication or for display. Must be between 4-64 alphanumeric characters, must start with a letter. */
 @property (readonly) NSString *username;
 
-/** Password to use for authentication. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,& */
-@property (readonly) NSString *password;
-
 /** Display name for this user. Cannot be used for logging a user in; is non-unique. */
 @property (nonatomic, retain) NSString *displayName;
 
@@ -61,7 +58,7 @@
  
  Creates an pre-filled user object for manipulation. This user will not be authenticated until one of the authentication methods are called on it. Custom fields can be added to it before it is registered or authenticated.
  @param userUsername The user's desired username. Must be between 4-64 alphanumeric characters, must start with a letter.
- @param userPassword The user's password
+ @param userPassword The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  @return a working KiiUser object
  */
 + (KiiUser*) userWithUsername:(NSString*)userUsername
@@ -73,7 +70,7 @@
  Creates an pre-filled user object for manipulation. This user will not be authenticated until one of the authentication methods are called on it. Custom fields can be added to it before it is registered or authenticated. This method should only be used for authentication, as registration requires a username. This method can be used once the user's phone number has been verified.
  @param username The user's desired username. Must be between 4-64 alphanumeric characters, must start with a letter.
  @param phoneNumber The user's phone number. Must begin with a '+' and be at least 10 digits.
- @param userPassword The user's password
+ @param userPassword The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  @return a working KiiUser object
  */
 + (KiiUser*) userWithUsername:(NSString*)username
@@ -86,7 +83,7 @@
  Creates an pre-filled user object for registration. This user will not be authenticated until the registration method is called on it. It can be treated as any other KiiUser before it is registered.
  @param username The user's desired username. Must be between 4-64 alphanumeric characters, must start with a letter.
  @param emailAddress The user's email address
- @param userPassword The user's password
+ @param userPassword The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  @return a working KiiUser object
  */
 + (KiiUser*) userWithUsername:(NSString*)username
@@ -106,21 +103,21 @@
  
  Authenticates a user with the server. This method is non-blocking.
  @param userIdentifier Can be a username or a verified phone number or a verified email address
- @param password The user's password
+ @param password The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  @param delegate The object to make any callback requests to
  @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
  
- - (void) authenticationComplete:(KiiUser*)user withError:(NSError*)error {
+    - (void) authenticationComplete:(KiiUser*)user withError:(NSError*)error {
  
- // the request was successful
- if(error == nil) {
- // do something with the user
- }
+        // the request was successful
+        if(error == nil) {
+            // do something with the user
+        }
  
- else {
- // there was a problem
- }
- }
+        else {
+            // there was a problem
+        }
+    }
  
  */
 + (void) authenticate:(NSString*)userIdentifier
@@ -213,7 +210,7 @@
  
  Update a user's password with the server. The fromPassword must be equal to the current password associated with the account in order to succeed. This method is non-blocking.
  @param fromPassword The user's current password
- @param toPassword The user's desired password
+ @param toPassword The user's desired password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  @param delegate The object to make any callback requests to
  @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
  
@@ -238,9 +235,41 @@
  Update a user's password with the server. The fromPassword must be equal to the current password associated with the account in order to succeed. This method is blocking.
  @param error An NSError object, set to nil, to test for errors
  @param fromPassword The user's current password
- @param toPassword The user's desired password
+ @param toPassword The user's desired password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  */
 - (void) updatePasswordSynchronous:(NSError**)error from:(NSString*)fromPassword to:(NSString*)toPassword;
+
+
+/** Asynchronously reset a user's password on the server
+ 
+ Reset a user's password on the server. The user is determined by the specified userIdentifier - which can be an email address or phone number that has already been associated with an account. Reset instructions will be sent to that identifier. This method is non-blocking.
+ @param userIdentifier The email address or phone number which the account is associated with
+ @param delegate The object to make any callback requests to
+ @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
+ 
+    - (void) passwordResetComplete:(NSError*)error {
+ 
+        // the request was successful
+        if(error == nil) {
+            // do something with the user
+        }
+ 
+        else {
+            // there was a problem
+        }
+    }
+ 
+ */
++ (void) resetPassword:(NSString*)userIdentifier withDelegate:(id)delegate andCallback:(SEL)callback;
+
+
+/** Synchronously reset a user's password on the server
+ 
+ Reset a user's password on the server. The user is determined by the specified userIdentifier - which can be an email address or phone number that has already been associated with an account. Reset instructions will be sent to that identifier. This method is blocking.
+ @param error An NSError object, set to nil, to test for errors
+ @param userIdentifier The email address or phone number which the account is associated with
+ */
++ (void) resetPasswordSynchronous:(NSError**)error withUserIdentifier:(NSString*)userIdentifier;
 
 
 /** Synchronously verify the current user's phone number

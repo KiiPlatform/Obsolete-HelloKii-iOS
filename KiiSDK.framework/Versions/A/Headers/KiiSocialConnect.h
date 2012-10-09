@@ -21,18 +21,28 @@ typedef enum {
   
  1. Facebook (kiiSCNFacebook)
 */
-@interface KiiSocialConnect : NSObject {
-    KiiSCNFacebook *_facebookManager;
-}
+@interface KiiSocialConnect : NSObject;
 
-/** @constant KiiSocialNetworkName A list of constants representing social networks */
 
-// private
-@property (nonatomic, retain) NSMutableArray *availableNetworks;
+/** Required method by KiiSocialNetwork
+ 
+ This method must be placed in your AppDelegate file in order for the SNS to properly authenticate with KiiSocialConnect:
 
-// private
-+ (KiiSocialConnect*) sharedInstance;
+    // Pre iOS 4.2 support
+    - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+        return [KiiSocialConnect handleOpenURL:url];
+    }
+ 
+    // For iOS 4.2+ support
+    - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+                                           sourceApplication:(NSString *)sourceApplication 
+                                                  annotation:(id)annotation {
+        return [KiiSocialConnect handleOpenURL:url];
+    }
+
+ */
 + (BOOL) handleOpenURL:(NSURL*)url;
+
 
 /** Set up a reference to one of the supported KiiSocialNetworks.
  
@@ -46,13 +56,14 @@ typedef enum {
 + (void) setupNetwork:(KiiSocialNetworkName)network 
               withKey:(NSString*)key 
             andSecret:(NSString*)secret 
-           andOptions:(id)options;
+           andOptions:(NSDictionary*)options;
 
 
 /** Log a user into the social network provided
  
  This will initiate the login process for the given network, which for SSO-enabled services like Facebook, will send the user to the Facebook app for authentication. If a KiiUser has already been authenticated, this will authenticate and link the user to the network. Otherwise, this will generate a KiiUser that is automatically linked to the social network. The network must already be set up via setupNetwork:withKey:andSecret:andOptions:
  @param network One of the supported KiiSocialNetworkName values
+ @param options A dictionary of key/values to pass to KiiSocialConnect
  @param delegate The object to make any callback requests to
  @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
  
@@ -69,13 +80,14 @@ typedef enum {
      }
  
  */
-+ (void) logIn:(KiiSocialNetworkName)network withDelegate:(id)delegate andCallback:(SEL)callback;
++ (void) logIn:(KiiSocialNetworkName)network usingOptions:(NSDictionary*)options withDelegate:(id)delegate andCallback:(SEL)callback;
 
 
 /** Link the currently logged in user with a social network
  
  This will initiate the login process for the given network, which for SSO-enabled services like Facebook, will send the user to the Facebook app for authentication. There must be a currently authenticated KiiUser. Otherwise, you can use the logIn: method to create and log in a KiiUser using Facbeook. The network must already be set up via setupNetwork:withKey:andSecret:andOptions:
  @param network One of the supported KiiSocialNetworkName values
+ @param options A dictionary of key/values to pass to KiiSocialConnect
  @param delegate The object to make any callback requests to
  @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
  
@@ -92,7 +104,10 @@ typedef enum {
      }
  
  */
-+ (void) linkCurrentUserWithNetwork:(KiiSocialNetworkName)network withDelegate:(id)delegate andCallback:(SEL)callback;
++ (void) linkCurrentUserWithNetwork:(KiiSocialNetworkName)network
+                       usingOptions:(NSDictionary*)options
+                       withDelegate:(id)delegate
+                        andCallback:(SEL)callback;
 
 
 /** Unlink the currently logged in user from the social network.
@@ -115,6 +130,28 @@ typedef enum {
      }
  
  */
-+ (void) unLinkCurrentUserWithNetwork:(KiiSocialNetworkName)network withDelegate:(id)delegate andCallback:(SEL)callback;
++ (void) unLinkCurrentUserWithNetwork:(KiiSocialNetworkName)network
+                         withDelegate:(id)delegate
+                          andCallback:(SEL)callback;
+
+
+
+/** Retrieve the current user's access token from a social network
+ 
+ The network must be set up and linked to the current user. It is recommended you save this to preferences for multi-session use.
+ @param network One of the supported KiiSocialNetworkName values
+ @return An NSString representing the access token, nil if none available
+ */
++ (NSString*) getAccessTokenForNetwork:(KiiSocialNetworkName)network;
+
+
+
+/** Retrieve the current user's access token expiration date from a social network
+ 
+ The network must be set up and linked to the current user. It is recommended you save this to preferences for multi-session use.
+ @param network One of the supported KiiSocialNetworkName values
+ @return An NSDate representing the access token's expiration date, nil if none available
+ */
++ (NSDate*) getAccessTokenExpiresForNetwork:(KiiSocialNetworkName)network;
 
 @end

@@ -14,8 +14,10 @@
 #import "KiiUser.h"
 #import "KiiGroup.h"
 #import "KiiFile.h"
+#import "KiiFileBucket.h"
 #import "KiiUtilities.h"
 #import "KiiRequest.h"
+#import "KiiClause.h"
 #import "KiiQuery.h"
 #import "KiiAnyAuthenticatedUser.h"
 #import "KiiAnonymousUser.h"
@@ -24,6 +26,14 @@
 #import "KiiSocialConnect.h"
 
 @class KiiFile, KiiUser, KiiBucket, KiiGroup;
+
+
+enum {
+    kiiSiteUS,
+    kiiSiteJP
+};
+typedef NSUInteger KiiSite;
+
 
 /** The main SDK class
  
@@ -34,7 +44,7 @@
 
 /** Initialize the Kii SDK
  
- Should reside in applicationDidFinishLaunching:withResult:
+ Defaults to the US deployment. Should reside in applicationDidFinishLaunching:withResult:
  @param appId The application ID found in your Kii developer console
  @param appKey The application key found in your Kii developer console
  */
@@ -46,9 +56,9 @@
  If Kii has provided a custom URL, use this initializer to set it
  @param appId The application ID found in your Kii developer console
  @param appKey The application key found in your Kii developer console
- @param baseURL The base URL of the SDK. Do not use this method unless you have discussed with Kii support
+ @param kiiSite One of the enumerator constants kiiSiteUS (United States) or kiiSiteJP (Japan), based on your desired location
  */
-+ (void) beginWithID:(NSString*)appId andKey:(NSString*)appKey withCustomURL:(NSString*)baseURL;
++ (void) beginWithID:(NSString*)appId andKey:(NSString*)appKey andSite:(KiiSite)kiiSite;
 
 
 /** Get or create a bucket at the application level

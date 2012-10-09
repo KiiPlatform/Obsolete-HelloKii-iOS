@@ -52,6 +52,9 @@
 /** Invalid email format. Email must be a valid address */
 + (NSError*) invalidEmailFormat;
 
+/** Invalid email address format or phone number format. A userIdentifier must be one of the two */
++ (NSError*) invalidUserIdentifier;
+
 /** Invalid username format. The username must be 5-50 alphanumeric characters - the first character must be a letter. */
 + (NSError*) invalidUsername;
 
@@ -72,6 +75,9 @@
 
 /** The user's phone number was unable to be updated on the server */
 + (NSError*) unableToUpdatePhoneNumber;
+
+/** The request could not be made - the key associated with the social network is invalid. */
++ (NSError*) invalidSocialNetworkKey;
 
 ///---------------------------------------------------------------------------------------
 /// @name File API Errors (4xx)
@@ -132,6 +138,8 @@
 /** The group name provided is not valid. Ensure it is alphanumeric and more than 0 characters in length */
 + (NSError*) invalidGroupName;
 
+/** At least one of the ACL entries saved to an object failed. Please note there may also have been one or more successful entries. */
++ (NSError*) partialACLFailure;
 
 ///---------------------------------------------------------------------------------------
 /// @name Query Errors (6xx)

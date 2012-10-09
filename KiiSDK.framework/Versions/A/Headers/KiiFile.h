@@ -22,7 +22,7 @@
 /** The bucket that contains this file */
 @property (readonly) KiiFileBucket *bucket;
 
-/** The local path of a file to upload */
+/** The local path of a file to upload. This path is not saved to the server and only used for uploading new files or changing existing file bodies. */
 @property (nonatomic, retain) NSString *localPath;
 
 /** The remote ID of the file on the server */
@@ -43,7 +43,7 @@
 /** The modified date of the file on the server */
 @property (readonly) NSDate *modified;
 
-/** An optional application-specific UTF-8 encoded string */
+/** An optional application-specific UTF-8 encoded string. This field has a maximum size of 512 bytes */
 @property (nonatomic, retain) NSString *optional;
 
 /** The size of the file on the server */

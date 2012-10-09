@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08093BFC1607DA9900508730 /* KiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08093BFB1607DA9900508730 /* KiiSDK.framework */; };
+		086CB9251623BA4100C0570F /* KiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086CB9241623BA4100C0570F /* KiiSDK.framework */; };
 		08A420FF16168CCE00148A3A /* CBToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A420FE16168CCE00148A3A /* CBToolkit.framework */; };
 		08AA648616084B0500FDD06E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AA646716084B0500FDD06E /* AppDelegate.m */; };
 		08AA649616084B0500FDD06E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AA647B16084B0500FDD06E /* LoginViewController.m */; };
@@ -37,7 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08093BFB1607DA9900508730 /* KiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiSDK.framework; sourceTree = "<group>"; };
+		086CB9241623BA4100C0570F /* KiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiSDK.framework; sourceTree = "<group>"; };
 		08A420FE16168CCE00148A3A /* CBToolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CBToolkit.framework; sourceTree = "<group>"; };
 		08AA646616084B0500FDD06E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08AA646716084B0500FDD06E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 				08D035A415FF0474000042FB /* QuartzCore.framework in Frameworks */,
 				08D0353F15FEF448000042FB /* Foundation.framework in Frameworks */,
 				08D0354115FEF448000042FB /* CoreGraphics.framework in Frameworks */,
-				08093BFC1607DA9900508730 /* KiiSDK.framework in Frameworks */,
 				08A420FF16168CCE00148A3A /* CBToolkit.framework in Frameworks */,
+				086CB9251623BA4100C0570F /* KiiSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,8 +164,8 @@
 		08D0353B15FEF448000042FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				086CB9241623BA4100C0570F /* KiiSDK.framework */,
 				08A420FE16168CCE00148A3A /* CBToolkit.framework */,
-				08093BFB1607DA9900508730 /* KiiSDK.framework */,
 				08D035A315FF0474000042FB /* QuartzCore.framework */,
 				08D0356115FEF516000042FB /* MobileCoreServices.framework */,
 				08D0353C15FEF448000042FB /* UIKit.framework */,

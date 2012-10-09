@@ -50,23 +50,29 @@
 /** Add a KiiACLEntry to the local object, if not already present
  
  @param entry The KiiACLEntry to add
+ @return TRUE if the entry was added, FALSE otherwise
  */
-- (void) putACLEntry:(KiiACLEntry*)entry; 
+- (BOOL) putACLEntry:(KiiACLEntry*)entry;
 
 
 /** Remove a KiiACLEntry from the local object
  
  @param entry The KiiACLEntry to remove
+ @return TRUE if the entry was removed, FALSE otherwise
  */
-- (void) removeACLEntry:(KiiACLEntry*)entry; 
+- (BOOL) removeACLEntry:(KiiACLEntry*)entry; 
 
 
 /** Save the list of ACLEntry objects associated with this ACL object to the server
  
  This is a blocking method
- @param error An NSError object, set to nil, to test for errors
+ @param error An NSError object, set to nil, to test for errors. If this error shows partial success, one or more of the ACL entries was unsuccessfully saved - check the succeeded/failed parameters.
+ @param succeeded An NSArray object of KiiACLEntry objects that were successfully updated
+ @param failed An NSArray object of KiiACLEntry objects that failed to update
  */
-- (void) saveSynchronous:(NSError**)error; 
+- (void) saveSynchronous:(NSError**)error
+              didSucceed:(NSArray**)succeeded
+                 didFail:(NSArray**)failed;
 
 
 /** Asynchronously saves the list of ACLEntry objects associated with this ACL object to the server
@@ -75,7 +81,7 @@
  @param delegate The object to make any callback requests to
  @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
  
-     - (void) aclSaved:(KiiACL*)acl withError:(NSError*)error {
+     - (void) aclSaved:(KiiACL*)acl withError:(NSError*)error andSuccessfulEntries:(NSArray*)successful andFailedEntries:(NSArray*)failed {
      
          // the request was successful
          if(error == nil) {
