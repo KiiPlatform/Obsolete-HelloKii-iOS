@@ -27,7 +27,6 @@
 
 @class KiiFile, KiiUser, KiiBucket, KiiGroup;
 
-
 enum {
     kiiSiteUS,
     kiiSiteJP
@@ -59,6 +58,7 @@ typedef NSUInteger KiiSite;
  @param kiiSite One of the enumerator constants kiiSiteUS (United States) or kiiSiteJP (Japan), based on your desired location
  */
 + (void) beginWithID:(NSString*)appId andKey:(NSString*)appKey andSite:(KiiSite)kiiSite;
++ (void) beginWithID:(NSString*)appId andKey:(NSString*)appKey andCustomURL:(NSString*)customURL;
 
 
 /** Get or create a bucket at the application level

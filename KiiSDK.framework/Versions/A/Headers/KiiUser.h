@@ -20,7 +20,7 @@
 /** The unique id of the KiiUser object, assigned by the server */
 @property (readonly) NSString *uuid;
 
-/** Username to use for authentication or for display. Must be between 4-64 alphanumeric characters, must start with a letter. */
+/** Username to use for authentication or for display. Must be between 3 and 64 characters, which can include alphanumeric characters as well as underscores '_' and periods '.' */
 @property (readonly) NSString *username;
 
 /** Display name for this user. Cannot be used for logging a user in; is non-unique. */
@@ -54,10 +54,9 @@
 @property (readonly) NSString *accessToken;
 
 
-/** Create a user object with credentials pre-filled
- 
+/** Create a user object to prepare for registration with credentials pre-filled
  Creates an pre-filled user object for manipulation. This user will not be authenticated until one of the authentication methods are called on it. Custom fields can be added to it before it is registered or authenticated.
- @param userUsername The user's desired username. Must be between 4-64 alphanumeric characters, must start with a letter.
+ @param userUsername The user's desired username. Must be between 3 and 64 characters, which can include alphanumeric characters as well as underscores '_' and periods '.'
  @param userPassword The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  @return a working KiiUser object
  */
@@ -65,11 +64,34 @@
                   andPassword:(NSString*)userPassword;
 
 
-/** Create a user object with credentials pre-filled
+/** Create a user object to prepare for registration with credentials pre-filled
  
- Creates an pre-filled user object for manipulation. This user will not be authenticated until one of the authentication methods are called on it. Custom fields can be added to it before it is registered or authenticated. This method should only be used for authentication, as registration requires a username. This method can be used once the user's phone number has been verified.
- @param username The user's desired username. Must be between 4-64 alphanumeric characters, must start with a letter.
- @param phoneNumber The user's phone number. Must begin with a '+' and be at least 10 digits.
+ Creates an pre-filled user object for registration. This user will not be authenticated until the registration method is called on it. It can be treated as any other KiiUser before it is registered.
+ @param phoneNumber The user's phone number
+ @param userPassword The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
+ @return a working KiiUser object
+ */
++ (KiiUser*) userWithPhoneNumber:(NSString*)phoneNumber
+                     andPassword:(NSString*)userPassword;
+
+
+/** Create a user object to prepare for registration with credentials pre-filled
+ 
+ Creates an pre-filled user object for registration. This user will not be authenticated until the registration method is called on it. It can be treated as any other KiiUser before it is registered.
+ @param emailAddress The user's email address
+ @param userPassword The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
+ @return a working KiiUser object
+ */
++ (KiiUser*) userWithEmailAddress:(NSString*)emailAddress
+                      andPassword:(NSString*)userPassword;
+
+
+
+/** Create a user object to prepare for registration with credentials pre-filled
+ 
+ Creates an pre-filled user object for registration. This user will not be authenticated until the registration method is called on it. It can be treated as any other KiiUser before it is registered.
+ @param username The user's desired username. Must be between 3 and 64 characters, which can include alphanumeric characters as well as underscores '_' and periods '.'
+ @param phoneNumber The user's phone number
  @param userPassword The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  @return a working KiiUser object
  */
@@ -78,10 +100,10 @@
                   andPassword:(NSString*)userPassword;
 
 
-/** Create a user object with credentials pre-filled
+/** Create a user object to prepare for registration with credentials pre-filled
  
  Creates an pre-filled user object for registration. This user will not be authenticated until the registration method is called on it. It can be treated as any other KiiUser before it is registered.
- @param username The user's desired username. Must be between 4-64 alphanumeric characters, must start with a letter.
+ @param username The user's desired username. Must be between 3 and 64 characters, which can include alphanumeric characters as well as underscores '_' and periods '.'
  @param emailAddress The user's email address
  @param userPassword The user's password. Must be at least 4 characters, made up of alphanumeric and/or: @,#,$,%,^,&
  @return a working KiiUser object
@@ -586,7 +608,7 @@
  @param delegate The object to make any callback requests to
  @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
  
-     - (void) emailChanged:(KiiUser*)user withError:(NSError*)error {
+     - (void) phoneChanged:(KiiUser*)user withError:(NSError*)error {
      
          // the request was successful
          if(error == nil) {
