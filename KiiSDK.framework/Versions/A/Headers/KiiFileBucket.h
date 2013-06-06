@@ -3,36 +3,67 @@
 //  KiiSDK-Private
 //
 //  Created by Chris Beauchamp on 6/6/12.
-//  Copyright (c) 2012 Chris Beauchamp. All rights reserved.
+//  Copyright (c) 2012 Kii Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "KiiPushSubscription.h"
+@class KiiFile, KiiUser, KiiQuery, KiiACL, KiiFileBucket,KiiRTransferManager;
 
-@class KiiFile, KiiUser, KiiQuery, KiiACL;
+typedef void (^KiiFileQueryResultBlock)(KiiQuery *query, KiiFileBucket *bucket, NSArray *results, NSError *error);
+typedef void (^KiiFileBucketBlock)(KiiFileBucket *bucket, NSError *error);
 
-/** A reference to a bucket within a user's scope which contains KiiFile objects */
-@interface KiiFileBucket : NSObject 
+/** A reference to a bucket within a user's scope which contains <KiiFile> objects */
+@interface KiiFileBucket : NSObject <KiiSubscribable>
 
 
-/** Get the ACL handle for this bucket. Any KiiACLEntry objects added or revoked from this ACL object will be appended to/removed from the server on ACL save. */
+/** Get the ACL handle for this bucket. Any <KiiACLEntry> objects added or revoked from this ACL object will be appended to/removed from the server on ACL save. */
 @property (readonly) KiiACL *bucketACL;
 
 
-/** Create a KiiFile within the current bucket based on the given local path
+/** Create a <KiiFile> within the current bucket based on the given local path
  
- The object will not be created on the server until the KiiFile is explicitly saved. This method returns a working KiiFile with local attributes pre-filled. For empty file creation, the -file method is also available.
+ The object will not be created on the server until the <KiiFile> is explicitly saved. This method returns a working <KiiFile> with local attributes pre-filled. For empty file creation, the -file method is also available.
  @param filePath The path of the file to use
- @return An empty KiiObject with the specified type
+ @return An empty <KiiObject> with the specified type
  */
 - (KiiFile*) fileWithLocalPath:(NSString*)filePath;
 
-
-/** Create a KiiFile within the current bucket
+/** Create a <KiiFile> within the current bucket using the passed data
  
- The file will not be created on the server until the KiiFile is explicitly saved. This method simply returns an empty working KiiFile.
- @return An empty KiiFile
+ The object will not be created on the server until the <KiiFile> is explicitly saved. This method returns a working <KiiFile> with local attributes pre-filled. For empty file creation, the -file method is also available.
+
+ @param fileData The data for the file to use
+ @return An empty <KiiObject> with the specified type
+ */
+- (KiiFile*) fileWithData:(NSData*)fileData;
+
+
+/** Create a <KiiFile> within the current bucket
+ 
+ The file will not be created on the server until the <KiiFile> is explicitly saved. This method simply returns an empty working <KiiFile>.
+ @return An empty <KiiFile>
  */
 - (KiiFile*) file;
+
+
+/** Execute a query on the current bucket
+ 
+ The query will be executed against the server, returning a result set. This is a blocking method
+ 
+     [bucket executeQuery:query
+                withBlock:^(KiiQuery *query, KiiFileBucket *bucket, NSArray *results, NSError *error) {
+     
+         if(error == nil) {
+             // do something with the results
+             NSLog(@"Got results: %@", results);
+         }
+     }];
+ 
+ @param query The query to execute
+ @param block The block to be called upon method completion. See example
+ */
+- (void) executeQuery:(KiiQuery*)query withBlock:(KiiFileQueryResultBlock)block;
 
 
 /** Execute a query on the current bucket
@@ -71,6 +102,19 @@
  */
 - (void) executeQuery:(KiiQuery*)query withDelegate:(id)delegate andCallback:(SEL)callback;
 
+/** Asynchronously deletes a bucket from the server.
+ 
+ Delete a bucket from the server. This method is non-blocking.
+ 
+     [b deleteWithBlock:^(KiiFileBucket *bucket, NSError *error) {
+         if(error == nil) {
+             NSLog(@"Bucket deleted!");
+         }
+     }];
+ 
+ @param block The block to be called upon method completion. See example
+ */
+- (void) deleteWithBlock:(KiiFileBucketBlock)block;
 
 /** Synchronously deletes a file bucket from the server.
  
@@ -101,5 +145,8 @@
  */
 - (void) delete:(id)delegate withCallback:(SEL)callback;
 
-
+/** Get transfer manager object based on this file bucket
+ @return A transfer manager object based on this file bucket.
+ */
+- (KiiRTransferManager*) transferManager;
 @end

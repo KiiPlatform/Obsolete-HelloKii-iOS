@@ -3,7 +3,7 @@
 //  KiiSDK-Private
 //
 //  Created by Chris Beauchamp on 8/20/12.
-//  Copyright (c) 2012 Chris Beauchamp. All rights reserved.
+//  Copyright (c) 2012 Kii Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

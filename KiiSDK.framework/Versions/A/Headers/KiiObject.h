@@ -3,33 +3,34 @@
 //  KiiSDK-Private
 //
 //  Created by Chris Beauchamp on 1/5/12.
-//  Copyright (c) 2012 Chris Beauchamp. All rights reserved.
+//  Copyright (c) 2012 Kii Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@class KiiACL, KiiBucket, KiiACL;
+@class KiiACL, KiiBucket, KiiACL, KiiObject;
+typedef void (^KiiObjectBlock)(KiiObject *object, NSError *error);
+
 
 /** A server-compatible object for generic storage use cases */
 @interface KiiObject : NSObject
-
 
 /** The unique id of the object, assigned by the server */
 @property (readonly) NSString *uuid;
 
 /** The date the object was created on the server */
-@property (readonly) NSDate *created;
+@property (strong, readonly) NSDate *created;
 
 /** The date the object was last modified on the server */
-@property (readonly) NSDate *modified;
+@property (strong, readonly) NSDate *modified;
 
 /** Get a specifically formatted string referencing the object. The object must exist in the cloud (have a valid UUID). */
-@property (readonly) NSString *objectURI;
+@property (strong, readonly) NSString *objectURI;
 
 /** The application-defined class name of the object */
-@property (readonly) NSString *objectType;
+@property (strong, readonly) NSString *objectType;
 
-/** Get the ACL handle for this file. Any KiiACLEntry objects added or revoked from this ACL object will be appended to/removed from the server on ACL save. */
+/** Get the ACL handle for this file. Any <KiiACLEntry> objects added or revoked from this ACL object will be appended to/removed from the server on ACL save. */
 @property (readonly) KiiACL *objectACL;
 
 /** The bucket that owns this object */
@@ -85,6 +86,21 @@
 - (id) getObjectForKey:(NSString*)key;
 
 
+/** Asynchronously saves the latest object values to the server
+ 
+ If the object does not yet exist, it will be created. If the object already exists, the fields that have changed locally will be updated accordingly. This is a non-blocking method.
+ 
+     [obj saveWithBlock:^(KiiObject *object, NSError *error) {
+         if(error == nil) {
+             NSLog(@"Object saved: %@", object);
+         }
+     }];
+ 
+ @param block The block to be called upon method completion. See example 
+*/
+- (void) saveWithBlock:(KiiObjectBlock)block;
+
+
 /** Asynchronously saves the latest object values to the server 
  
  If the object does not yet exist, it will be created. If the object already exists, the fields that have changed locally will be updated accordingly. This is a non-blocking method.
@@ -113,6 +129,22 @@
  @param error An NSError object, set to nil, to test for errors
  */
 - (void) saveSynchronous:(NSError**)error;
+
+
+/** Asynchronously saves the latest object values to the server
+ 
+ If the object does not yet exist, it will be created. If the object already exists and forced is set to TRUE, all fields on the server will be replaced by the fields defined locally. Otherwise, only changed fields will be modified. This is a non-blocking method.
+ 
+     [obj save:TRUE withBlock:^(KiiObject *object, NSError *error) {
+         if(error == nil) {
+             NSLog(@"Object saved: %@", object);
+         }
+     }];
+ 
+ @param forced Set to TRUE if the local copy should overwrite the remote copy, even if the remote copy is newer. Set to FALSE otherwise.
+ @param block The block to be called upon method completion. See example
+*/
+- (void) save:(BOOL)forced withBlock:(KiiObjectBlock)block;
 
 
 /** Asynchronously saves the latest object values to the server
@@ -150,6 +182,22 @@
 /** Asynchronously saves the latest object values to the server
  
  If the object does not yet exist, it will be created. If the object already exists, all fields will be removed or changed to match the local values. This is a non-blocking method.
+ 
+     [obj save:TRUE withBlock:^(KiiObject *object, NSError *error) {
+         if(error == nil) {
+             NSLog(@"Object saved: %@", object);
+         }
+     }];
+
+ @param forced Set to TRUE if the local copy should overwrite the remote copy, even if the remote copy is newer. Set to FALSE otherwise.
+ @param block The block to be called upon method completion. See example
+*/
+- (void) saveAllFields:(BOOL)forced withBlock:(KiiObjectBlock)block;
+
+
+/** Asynchronously saves the latest object values to the server
+ 
+ If the object does not yet exist, it will be created. If the object already exists, all fields will be removed or changed to match the local values. This is a non-blocking method.
  @param forced Set to TRUE if the local copy should overwrite the remote copy, even if the remote copy is newer. Set to FALSE otherwise.
  @param delegate The object to make any callback requests to
  @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
@@ -178,6 +226,19 @@
  */
 - (void) saveAllFieldsSynchronous:(BOOL)forced withError:(NSError**)error;
 
+/** Asynchronously updates the local object's data with the object data on the server
+ 
+ The object must exist on the server. Local data will be overwritten.
+     
+     [obj refreshWithBlock:^(KiiObject *object, NSError *error) {
+         if(error == nil) {
+             NSLog(@"Object refreshed: %@", object);
+         }
+     }];
+     
+ @param block The block to be called upon method completion. See example
+*/
+- (void) refreshWithBlock:(KiiObjectBlock)block;
 
 /** Asynchronously updates the local object's data with the object data on the server
  
@@ -208,8 +269,22 @@
  */
 - (void) refreshSynchronous:(NSError**)error;
 
+/** Asynchronously deletes an object from the server.
+ 
+ Delete an object from the server. This method is non-blocking.
+ 
+     [obj deleteWithBlock:^(KiiObject *object, NSError *error) {
+         if(error == nil) {
+             NSLog(@"Object deleted!");
+         }
+     }];
+ 
+ @param block The block to be called upon method completion. See example
+*/
+- (void) deleteWithBlock:(KiiObjectBlock)block;
 
-/** Asynchronously deletes an object from the server. 
+
+/** Asynchronously deletes an object from the server.
  
  Delete an object from the server. This method is non-blocking.
  @param delegate The object to make any callback requests to

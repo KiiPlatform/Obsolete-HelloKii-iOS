@@ -3,25 +3,26 @@
 //  KiiSDK-Private
 //
 //  Created by Chris Beauchamp on 1/25/12.
-//  Copyright (c) 2012 Chris Beauchamp. All rights reserved.
+//  Copyright (c) 2012 Kii Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @class KiiClause;
 
-/** A class to handle queries agains the data store.
+
+/** A class to handle queries against the data store.
  
- This class gives an application the opportunity to query the server for a refined set of results. A query must be initialized with a collection (class) to query against, can be composed of various attributes, and must contain either a KQWhere or KQExp clause for its main definition.
+ This class gives an application the opportunity to query the server for a refined set of results. A query must be initialized with a collection (class) to query against, can be composed of various attributes, and must contain a <KiiClause> for its main definition.
  */
-@interface KiiQuery : NSObject 
+@interface KiiQuery : NSObject
 
 
 /** The object collection being queried. nil if querying for files. */
-@property (readonly) NSString *collection;
+@property (strong, readonly) NSString *collection;
 
 /** The file container being queried. nil if querying for objects. */
-@property (readonly) NSString *container;
+@property (strong, readonly) NSString *container;
 
 /** The file container being queried. nil if querying for objects. */
 @property (readonly) NSString *sortField;
@@ -33,9 +34,11 @@
 @property (readonly) BOOL sortDescending;
 
 
-/** Create a KiiQuery object based on a KiiClause
+/** Create a KiiQuery object based on a <KiiClause>
  
- @param clause The KiiClause to be executed with the query
+ By passing nil as the 'clause' parameter, all objects can be retrieved.
+ 
+ @param clause The <KiiClause> to be executed with the query
  */
 + (KiiQuery*) queryWithClause:(KiiClause*)clause;
 
