@@ -3,7 +3,7 @@
 //  KiiSDK-Private
 //
 //  Created by Chris Beauchamp on 7/3/12.
-//  Copyright (c) 2012 Chris Beauchamp. All rights reserved.
+//  Copyright (c) 2012 Kii Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,7 +17,7 @@ typedef enum {
 
 /** An interface to link users to social networks
  
- The SDK furrently support the following social networks (KiiSocialNetworkName constant):
+ The SDK currently support the following social networks (KiiSocialNetworkName constant):
   
  1. Facebook (kiiSCNFacebook)
 */
@@ -46,11 +46,11 @@ typedef enum {
 
 /** Set up a reference to one of the supported KiiSocialNetworks.
  
- The user will not be authenticated or linked to a KiiUser
+ The user will not be authenticated or linked to a <KiiUser>
  until one of those methods are called explicitly.
  @param network One of the supported KiiSocialNetworkName values
  @param key The SDK key assigned by the social network provider
- @param secret The SDK secret assigned by thte social network provider
+ @param secret The SDK secret assigned by the social network provider
  @param options Extra options that should be passed to the SNS. Examples could be (Facebook) an NSDictionary of permissions to grant to the authenticated user.
  */
 + (void) setupNetwork:(KiiSocialNetworkName)network 
@@ -61,7 +61,7 @@ typedef enum {
 
 /** Log a user into the social network provided
  
- This will initiate the login process for the given network, which for SSO-enabled services like Facebook, will send the user to the Facebook app for authentication. If a KiiUser has already been authenticated, this will authenticate and link the user to the network. Otherwise, this will generate a KiiUser that is automatically linked to the social network. The network must already be set up via setupNetwork:withKey:andSecret:andOptions:
+ This will initiate the login process for the given network, which for SSO-enabled services like Facebook, will send the user to the Facebook app for authentication. If a <KiiUser> has already been authenticated, this will authenticate and link the user to the network. Otherwise, this will generate a <KiiUser> that is automatically linked to the social network. The network must already be set up via <setupNetwork:withKey:andSecret:andOptions:>
  @param network One of the supported KiiSocialNetworkName values
  @param options A dictionary of key/values to pass to KiiSocialConnect
  @param delegate The object to make any callback requests to
@@ -85,7 +85,7 @@ typedef enum {
 
 /** Link the currently logged in user with a social network
  
- This will initiate the login process for the given network, which for SSO-enabled services like Facebook, will send the user to the Facebook app for authentication. There must be a currently authenticated KiiUser. Otherwise, you can use the logIn: method to create and log in a KiiUser using Facbeook. The network must already be set up via setupNetwork:withKey:andSecret:andOptions:
+ This will initiate the login process for the given network, which for SSO-enabled services like Facebook, will send the user to the Facebook app for authentication. There must be a currently authenticated <KiiUser>. Otherwise, you can use the logIn: method to create and log in a <KiiUser> using Facebook. The network must already be set up via <setupNetwork:withKey:andSecret:andOptions:>
  @param network One of the supported KiiSocialNetworkName values
  @param options A dictionary of key/values to pass to KiiSocialConnect
  @param delegate The object to make any callback requests to
@@ -112,7 +112,7 @@ typedef enum {
 
 /** Unlink the currently logged in user from the social network.
  
- The network must already be set up via setupNetwork:withKey:andSecret:andOptions:
+ The network must already be set up via <setupNetwork:withKey:andSecret:andOptions:>
  @param network One of the supported KiiSocialNetworkName values
  @param delegate The object to make any callback requests to
  @param callback The callback method to be called when the request is completed. The callback method should have a signature similar to:
