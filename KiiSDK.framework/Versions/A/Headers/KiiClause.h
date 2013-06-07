@@ -3,7 +3,7 @@
 //  KiiSDK-Private
 //
 //  Created by Chris Beauchamp on 7/23/12.
-//  Copyright (c) 2012 Chris Beauchamp. All rights reserved.
+//  Copyright (c) 2012 Kii Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -69,6 +69,18 @@
  @param key The key to compare
  @param value The value to check for
  */
-+ (KiiClause*)startsWith:(NSString*)key value:(NSString*)value; 
++ (KiiClause*)startsWith:(NSString*)key value:(NSString*)value;
 
+/** Create a KiiClause with the AND operator concatenating multiple KiiClause objects
+ @param clauses An array KiiClause objects to concatenate
+ @return KiiClause instance with concatenated AND operator,or nil if array contains any non KiiClause instance
+ */
++(KiiClause*) andClauses:(NSArray*) clauses;
+
+/** Create a KiiClause with the OR operator concatenating multiple KiiClause objects
+ @param clauses An array KiiClause objects to concatenate
+ 
+ @return KiiClause instance with concatenated OR operator,or nil if array contains any non KiiClause instance
+ */
++(KiiClause*) orClauses:(NSArray*) clauses;
 @end

@@ -3,7 +3,7 @@
 //  SampleApp
 //
 //  Created by Chris Beauchamp on 12/11/11.
-//  Copyright (c) 2011 Chris Beauchamp. All rights reserved.
+//  Copyright (c) 2011 Kii Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -24,19 +24,32 @@
 #import "KiiACL.h"
 #import "KiiACLEntry.h"
 #import "KiiSocialConnect.h"
+#import "KiiPushInstallation.h"
+#import "KiiTopic.h"
+#import "KiiPushMessage.h"
+#import "KiiAPNSFields.h"
+#import "KiiGCMFields.h"
+#import "KiiRTransfer.h"
+#import "KiiUploader.h"
+#import "KiiRTransferManager.h"
+#import "KiiResumableTransfer.h"
+#import "KiiRTransferInfo.h"
+#import "KiiDownloader.h"
+
 
 @class KiiFile, KiiUser, KiiBucket, KiiGroup;
 
 enum {
     kiiSiteUS,
-    kiiSiteJP
+    kiiSiteJP,
+    kiiSiteCN
 };
 typedef NSUInteger KiiSite;
 
 
 /** The main SDK class
  
- This class must be initialized on application launch using beginWithID:andKey:. This class also allows the application to make some high-level user calls and access some application-wide data at any time using static methods.
+ This class must be initialized on application launch using <beginWithID:andKey:>. This class also allows the application to make some high-level user calls and access some application-wide data at any time using static methods.
  */
 @interface Kii : NSObject
 
@@ -55,7 +68,8 @@ typedef NSUInteger KiiSite;
  If Kii has provided a custom URL, use this initializer to set it
  @param appId The application ID found in your Kii developer console
  @param appKey The application key found in your Kii developer console
- @param kiiSite One of the enumerator constants kiiSiteUS (United States) or kiiSiteJP (Japan), based on your desired location
+ @param kiiSite One of the enumerator constants kiiSiteUS (United States) or kiiSiteJP (Japan), based on your desired location.
+ NOTE: kiiSiteCN is not available now. Please wait for official launch of cloud in China.
  */
 + (void) beginWithID:(NSString*)appId andKey:(NSString*)appKey andSite:(KiiSite)kiiSite;
 + (void) beginWithID:(NSString*)appId andKey:(NSString*)appKey andCustomURL:(NSString*)customURL;
@@ -64,10 +78,18 @@ typedef NSUInteger KiiSite;
 /** Get or create a bucket at the application level
  
  @param bucketName The name of the bucket you'd like to use
- @return An instance of a working KiiBucket
+ @return An instance of a working <KiiBucket>
  */
 + (KiiBucket*) bucketWithName:(NSString*)bucketName;
 
+
+/** Get a Topic at the application level
+ Creation of App-scope topic is only supported by REST API calls, iOS SDK only has ability to get the app-scope topic object.
+ 
+ @param TopicName The name of the topic you'd like to use. It has to match the pattern ^[A-Za-z0-9_-]{1,64}$, that is letters, numbers, '-' and '_' and non-multibyte characters with a length between 1 and 64 characters.
+ @return An instance of a working <KiiTopic>
+ */
++ (KiiTopic*) topicWithName:(NSString*)topicName;
 
 /** Kii SDK Build Number
  @return An NSString object representing the current build number of the SDK
@@ -84,7 +106,7 @@ typedef NSUInteger KiiSite;
  
  If the group already exists, it should be be 'refreshed' to fill the data from the server
  @param groupName An application-specific group name
- @return a working KiiGroup
+ @return a working <KiiGroup>
  */
 + (KiiGroup*) groupWithName:(NSString*)groupName;
 
@@ -94,9 +116,24 @@ typedef NSUInteger KiiSite;
  If the group already exists, it should be be 'refreshed' to fill the data from the server
  @param groupName An application-specific group name
  @param members An array of members to automatically add to the group upon creation
- @return a working KiiGroup
+ @return a working <KiiGroup>
  */
 + (KiiGroup*) groupWithName:(NSString*)groupName andMembers:(NSArray*)members;
 
++ (void) setLogLevel:(int)level;
+
+/** Enable Kii APNS
+ @param isProductionMode true if APNS production environment mode or false for development mode
+ @param types ui remote notification type
+ */
++(void)enableAPNSWithDevelopmentMode:(BOOL) isDevelopmentMode
+               andNotificationTypes:(UIRemoteNotificationType) types;
+
+/** Set APNS device token it is called on AppDelegate's didRegisterForRemoteNotificationsWithDeviceToken
+@param deviceToken device token that is given by APNS server.
+ */
++(void) setAPNSDeviceToken:(NSData*) deviceToken;
+
+@property(assign) BOOL isDevelopmentMode;
 
 @end
