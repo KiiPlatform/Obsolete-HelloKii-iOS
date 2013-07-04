@@ -1,2 +1,2 @@
-git archive -o HelloKii-iOS.zip HEAD
+git archive --prefix=HelloKii-iOS/ -o HelloKii-iOS.zip HEAD
 
