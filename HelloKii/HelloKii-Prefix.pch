@@ -14,4 +14,4 @@
 #endif
 
 #import <KiiSDK/Kii.h>
-#import <CBToolkit/CBToolkit.h>
+#import "KiiToolkit.h"
