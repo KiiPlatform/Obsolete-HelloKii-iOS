@@ -32,13 +32,13 @@
     [Kii beginWithID:@"__KII_APP_ID__"
               andKey:@"__KII_APP_key__"
              andSite:__KII_APP_SITE__];
-                
+        
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    // Override point for customization after application launch.
+    ViewController *vc = [[ViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
     return YES;

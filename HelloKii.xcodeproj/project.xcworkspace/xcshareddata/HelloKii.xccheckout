@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4BB1608A-6E9F-4F38-9524-E146937CD97E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelloKii</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7F9DD23A-8859-4372-A9A2-14B91B467C89</key>
+		<string>https://github.com/KiiPlatform/HelloKii-iOS.git</string>
+		<key>86388CA8-4B1B-4596-8575-230CB7C77FE0</key>
+		<string>https://github.com/KiiPlatform/KiiToolkit-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HelloKii.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7F9DD23A-8859-4372-A9A2-14B91B467C89</key>
+		<string>../..</string>
+		<key>86388CA8-4B1B-4596-8575-230CB7C77FE0</key>
+		<string>../../KiiToolkit-iOS</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/KiiPlatform/HelloKii-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7F9DD23A-8859-4372-A9A2-14B91B467C89</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7F9DD23A-8859-4372-A9A2-14B91B467C89</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HelloKii-iOS</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>86388CA8-4B1B-4596-8575-230CB7C77FE0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KiiToolkit-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
