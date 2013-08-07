@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08016ADE1623BD310038E698 /* CBToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08016ADD1623BD310038E698 /* CBToolkit.framework */; };
 		08AA648616084B0500FDD06E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AA646716084B0500FDD06E /* AppDelegate.m */; };
-		08AA649616084B0500FDD06E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AA647B16084B0500FDD06E /* LoginViewController.m */; };
-		08AA649716084B0500FDD06E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AA647C16084B0500FDD06E /* LoginViewController.xib */; };
 		08AA649F16084B0500FDD06E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AA648516084B0500FDD06E /* ViewController.m */; };
 		08AA64B316084B4500FDD06E /* blue_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64A316084B4500FDD06E /* blue_normal.png */; };
 		08AA64B416084B4500FDD06E /* blue_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64A416084B4500FDD06E /* blue_normal@2x.png */; };
@@ -26,7 +23,6 @@
 		08AA64BE16084B4500FDD06E /* orange_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64AE16084B4500FDD06E /* orange_pressed@2x.png */; };
 		08AA64D816084BD600FDD06E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08AA64D016084BD600FDD06E /* main.m */; };
 		08AA64D916084BD600FDD06E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64D316084BD600FDD06E /* InfoPlist.strings */; };
-		08AA64DA16084BD600FDD06E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64D516084BD600FDD06E /* ViewController.xib */; };
 		08AA64DB16084BD600FDD06E /* HelloKii-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08AA64D716084BD600FDD06E /* HelloKii-Info.plist */; };
 		08AB2C801623F62C003A1C66 /* KiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08AB2C7F1623F62C003A1C66 /* KiiSDK.framework */; };
 		08D0353D15FEF448000042FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D0353C15FEF448000042FB /* UIKit.framework */; };
@@ -34,15 +30,43 @@
 		08D0354115FEF448000042FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D0354015FEF448000042FB /* CoreGraphics.framework */; };
 		08D0356215FEF516000042FB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D0356115FEF516000042FB /* MobileCoreServices.framework */; };
 		08D035A415FF0474000042FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D035A315FF0474000042FB /* QuartzCore.framework */; };
+		CAE9943717B1609600FC1508 /* KTAppRater.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE993EE17B1609600FC1508 /* KTAppRater.m */; };
+		CAE9943817B1609600FC1508 /* kt_login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE993F117B1609600FC1508 /* kt_login_bg.png */; };
+		CAE9943917B1609600FC1508 /* kt_login_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE993F217B1609600FC1508 /* kt_login_bg@2x.png */; };
+		CAE9943A17B1609600FC1508 /* kt_login_close.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE993F317B1609600FC1508 /* kt_login_close.png */; };
+		CAE9943B17B1609600FC1508 /* kt_login_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE993F417B1609600FC1508 /* kt_login_close@2x.png */; };
+		CAE9943C17B1609600FC1508 /* kt_login_kii_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE993F517B1609600FC1508 /* kt_login_kii_logo.png */; };
+		CAE9943D17B1609600FC1508 /* kt_login_kii_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE993F617B1609600FC1508 /* kt_login_kii_logo@2x.png */; };
+		CAE9943E17B1609600FC1508 /* KTForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE993F817B1609600FC1508 /* KTForgotPasswordViewController.m */; };
+		CAE9943F17B1609600FC1508 /* KTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE993FA17B1609600FC1508 /* KTLoginViewController.m */; };
+		CAE9944017B1609600FC1508 /* KTRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE993FC17B1609600FC1508 /* KTRegistrationViewController.m */; };
+		CAE9944117B1609600FC1508 /* CKRefreshArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE993FF17B1609600FC1508 /* CKRefreshArrowView.m */; };
+		CAE9944217B1609600FC1508 /* KTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9940117B1609600FC1508 /* KTTableViewController.m */; };
+		CAE9944317B1609600FC1508 /* KTAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9940517B1609600FC1508 /* KTAlert.m */; };
+		CAE9944417B1609600FC1508 /* KTAlertBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9940817B1609600FC1508 /* KTAlertBar.m */; };
+		CAE9944517B1609600FC1508 /* KTAlertToast.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9940A17B1609600FC1508 /* KTAlertToast.m */; };
+		CAE9944617B1609600FC1508 /* KTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9940D17B1609600FC1508 /* KTButton.m */; };
+		CAE9944717B1609600FC1508 /* KTCircularProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9941017B1609600FC1508 /* KTCircularProgressIndicator.m */; };
+		CAE9944817B1609600FC1508 /* KTImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9941317B1609600FC1508 /* KTImageView.m */; };
+		CAE9944917B1609600FC1508 /* failure-indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE9941617B1609600FC1508 /* failure-indicator.png */; };
+		CAE9944A17B1609600FC1508 /* failure-indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE9941717B1609600FC1508 /* failure-indicator@2x.png */; };
+		CAE9944B17B1609600FC1508 /* success-indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE9941817B1609600FC1508 /* success-indicator.png */; };
+		CAE9944C17B1609600FC1508 /* success-indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAE9941917B1609600FC1508 /* success-indicator@2x.png */; };
+		CAE9944D17B1609600FC1508 /* KTLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9941B17B1609600FC1508 /* KTLoader.m */; };
+		CAE9944E17B1609600FC1508 /* KTProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9941E17B1609600FC1508 /* KTProgressIndicator.m */; };
+		CAE9944F17B1609600FC1508 /* KTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9942117B1609600FC1508 /* KTTextField.m */; };
+		CAE9945017B1609600FC1508 /* NSMutableArray+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9942717B1609600FC1508 /* NSMutableArray+KTUtilities.m */; };
+		CAE9945117B1609600FC1508 /* NSString+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9942A17B1609600FC1508 /* NSString+KTUtilities.m */; };
+		CAE9945217B1609600FC1508 /* UIColor+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9942D17B1609600FC1508 /* UIColor+KTUtilities.m */; };
+		CAE9945317B1609600FC1508 /* UIImage+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9943017B1609600FC1508 /* UIImage+KTUtilities.m */; };
+		CAE9945417B1609600FC1508 /* UIView+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9943317B1609600FC1508 /* UIView+KTUtilities.m */; };
+		CAE9945517B1609600FC1508 /* KTNetworkingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9943517B1609600FC1508 /* KTNetworkingUtilities.m */; };
+		CAE9945717B162A300FC1508 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE9945617B162A300FC1508 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08016ADD1623BD310038E698 /* CBToolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CBToolkit.framework; sourceTree = "<group>"; };
 		08AA646616084B0500FDD06E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08AA646716084B0500FDD06E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		08AA647A16084B0500FDD06E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		08AA647B16084B0500FDD06E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		08AA647C16084B0500FDD06E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		08AA648416084B0500FDD06E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		08AA648516084B0500FDD06E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		08AA64A316084B4500FDD06E /* blue_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue_normal.png; path = images/blue_normal.png; sourceTree = "<group>"; };
@@ -60,7 +84,6 @@
 		08AA64D016084BD600FDD06E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08AA64D116084BD600FDD06E /* HelloKii-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HelloKii-Prefix.pch"; sourceTree = "<group>"; };
 		08AA64D416084BD600FDD06E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		08AA64D616084BD600FDD06E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ViewController.xib; sourceTree = "<group>"; };
 		08AA64D716084BD600FDD06E /* HelloKii-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HelloKii-Info.plist"; sourceTree = "<group>"; };
 		08AB2C7F1623F62C003A1C66 /* KiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiSDK.framework; sourceTree = "<group>"; };
 		08D0353815FEF448000042FB /* HelloKii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloKii.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +92,62 @@
 		08D0354015FEF448000042FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		08D0356115FEF516000042FB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		08D035A315FF0474000042FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CAE993EB17B1609600FC1508 /* KiiToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KiiToolkit.h; path = "KiiToolkit-iOS/KiiToolkit.h"; sourceTree = "<group>"; };
+		CAE993ED17B1609600FC1508 /* KTAppRater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAppRater.h; sourceTree = "<group>"; };
+		CAE993EE17B1609600FC1508 /* KTAppRater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAppRater.m; sourceTree = "<group>"; };
+		CAE993F117B1609600FC1508 /* kt_login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kt_login_bg.png; sourceTree = "<group>"; };
+		CAE993F217B1609600FC1508 /* kt_login_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kt_login_bg@2x.png"; sourceTree = "<group>"; };
+		CAE993F317B1609600FC1508 /* kt_login_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kt_login_close.png; sourceTree = "<group>"; };
+		CAE993F417B1609600FC1508 /* kt_login_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kt_login_close@2x.png"; sourceTree = "<group>"; };
+		CAE993F517B1609600FC1508 /* kt_login_kii_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kt_login_kii_logo.png; sourceTree = "<group>"; };
+		CAE993F617B1609600FC1508 /* kt_login_kii_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kt_login_kii_logo@2x.png"; sourceTree = "<group>"; };
+		CAE993F717B1609600FC1508 /* KTForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTForgotPasswordViewController.h; sourceTree = "<group>"; };
+		CAE993F817B1609600FC1508 /* KTForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTForgotPasswordViewController.m; sourceTree = "<group>"; };
+		CAE993F917B1609600FC1508 /* KTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTLoginViewController.h; sourceTree = "<group>"; };
+		CAE993FA17B1609600FC1508 /* KTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTLoginViewController.m; sourceTree = "<group>"; };
+		CAE993FB17B1609600FC1508 /* KTRegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTRegistrationViewController.h; sourceTree = "<group>"; };
+		CAE993FC17B1609600FC1508 /* KTRegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTRegistrationViewController.m; sourceTree = "<group>"; };
+		CAE993FE17B1609600FC1508 /* CKRefreshArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKRefreshArrowView.h; sourceTree = "<group>"; };
+		CAE993FF17B1609600FC1508 /* CKRefreshArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKRefreshArrowView.m; sourceTree = "<group>"; };
+		CAE9940017B1609600FC1508 /* KTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTTableViewController.h; sourceTree = "<group>"; };
+		CAE9940117B1609600FC1508 /* KTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTTableViewController.m; sourceTree = "<group>"; };
+		CAE9940417B1609600FC1508 /* KTAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAlert.h; sourceTree = "<group>"; };
+		CAE9940517B1609600FC1508 /* KTAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAlert.m; sourceTree = "<group>"; };
+		CAE9940717B1609600FC1508 /* KTAlertBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAlertBar.h; sourceTree = "<group>"; };
+		CAE9940817B1609600FC1508 /* KTAlertBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAlertBar.m; sourceTree = "<group>"; };
+		CAE9940917B1609600FC1508 /* KTAlertToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTAlertToast.h; sourceTree = "<group>"; };
+		CAE9940A17B1609600FC1508 /* KTAlertToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTAlertToast.m; sourceTree = "<group>"; };
+		CAE9940C17B1609600FC1508 /* KTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTButton.h; sourceTree = "<group>"; };
+		CAE9940D17B1609600FC1508 /* KTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTButton.m; sourceTree = "<group>"; };
+		CAE9940F17B1609600FC1508 /* KTCircularProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTCircularProgressIndicator.h; sourceTree = "<group>"; };
+		CAE9941017B1609600FC1508 /* KTCircularProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTCircularProgressIndicator.m; sourceTree = "<group>"; };
+		CAE9941217B1609600FC1508 /* KTImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTImageView.h; sourceTree = "<group>"; };
+		CAE9941317B1609600FC1508 /* KTImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTImageView.m; sourceTree = "<group>"; };
+		CAE9941617B1609600FC1508 /* failure-indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failure-indicator.png"; sourceTree = "<group>"; };
+		CAE9941717B1609600FC1508 /* failure-indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "failure-indicator@2x.png"; sourceTree = "<group>"; };
+		CAE9941817B1609600FC1508 /* success-indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success-indicator.png"; sourceTree = "<group>"; };
+		CAE9941917B1609600FC1508 /* success-indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success-indicator@2x.png"; sourceTree = "<group>"; };
+		CAE9941A17B1609600FC1508 /* KTLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTLoader.h; sourceTree = "<group>"; };
+		CAE9941B17B1609600FC1508 /* KTLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTLoader.m; sourceTree = "<group>"; };
+		CAE9941D17B1609600FC1508 /* KTProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTProgressIndicator.h; sourceTree = "<group>"; };
+		CAE9941E17B1609600FC1508 /* KTProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTProgressIndicator.m; sourceTree = "<group>"; };
+		CAE9942017B1609600FC1508 /* KTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTTextField.h; sourceTree = "<group>"; };
+		CAE9942117B1609600FC1508 /* KTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTTextField.m; sourceTree = "<group>"; };
+		CAE9942217B1609600FC1508 /* KTUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTUI.h; sourceTree = "<group>"; };
+		CAE9942617B1609600FC1508 /* NSMutableArray+KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+KTUtilities.h"; sourceTree = "<group>"; };
+		CAE9942717B1609600FC1508 /* NSMutableArray+KTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+KTUtilities.m"; sourceTree = "<group>"; };
+		CAE9942917B1609600FC1508 /* NSString+KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+KTUtilities.h"; sourceTree = "<group>"; };
+		CAE9942A17B1609600FC1508 /* NSString+KTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KTUtilities.m"; sourceTree = "<group>"; };
+		CAE9942C17B1609600FC1508 /* UIColor+KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KTUtilities.h"; sourceTree = "<group>"; };
+		CAE9942D17B1609600FC1508 /* UIColor+KTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KTUtilities.m"; sourceTree = "<group>"; };
+		CAE9942F17B1609600FC1508 /* UIImage+KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KTUtilities.h"; sourceTree = "<group>"; };
+		CAE9943017B1609600FC1508 /* UIImage+KTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KTUtilities.m"; sourceTree = "<group>"; };
+		CAE9943217B1609600FC1508 /* UIView+KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KTUtilities.h"; sourceTree = "<group>"; };
+		CAE9943317B1609600FC1508 /* UIView+KTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KTUtilities.m"; sourceTree = "<group>"; };
+		CAE9943417B1609600FC1508 /* KTNetworkingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTNetworkingUtilities.h; sourceTree = "<group>"; };
+		CAE9943517B1609600FC1508 /* KTNetworkingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTNetworkingUtilities.m; sourceTree = "<group>"; };
+		CAE9943617B1609600FC1508 /* KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTUtilities.h; sourceTree = "<group>"; };
+		CAE9945617B162A300FC1508 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +155,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE9945717B162A300FC1508 /* SystemConfiguration.framework in Frameworks */,
 				08D0356215FEF516000042FB /* MobileCoreServices.framework in Frameworks */,
 				08D0353D15FEF448000042FB /* UIKit.framework in Frameworks */,
 				08D035A415FF0474000042FB /* QuartzCore.framework in Frameworks */,
 				08D0353F15FEF448000042FB /* Foundation.framework in Frameworks */,
 				08D0354115FEF448000042FB /* CoreGraphics.framework in Frameworks */,
-				08016ADE1623BD310038E698 /* CBToolkit.framework in Frameworks */,
 				08AB2C801623F62C003A1C66 /* KiiSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,9 +175,6 @@
 				08AA64A016084B3B00FDD06E /* images */,
 				08AA646616084B0500FDD06E /* AppDelegate.h */,
 				08AA646716084B0500FDD06E /* AppDelegate.m */,
-				08AA647A16084B0500FDD06E /* LoginViewController.h */,
-				08AA647B16084B0500FDD06E /* LoginViewController.m */,
-				08AA647C16084B0500FDD06E /* LoginViewController.xib */,
 				08AA648416084B0500FDD06E /* ViewController.h */,
 				08AA648516084B0500FDD06E /* ViewController.m */,
 			);
@@ -139,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				08AA64D316084BD600FDD06E /* InfoPlist.strings */,
-				08AA64D516084BD600FDD06E /* ViewController.xib */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -147,6 +222,7 @@
 		08D0352D15FEF448000042FB = {
 			isa = PBXGroup;
 			children = (
+				CAE993EA17B1608000FC1508 /* KiiToolkit-iOS */,
 				08AA646516084B0500FDD06E /* HelloKii */,
 				08D0353B15FEF448000042FB /* Frameworks */,
 				08D0353915FEF448000042FB /* Products */,
@@ -164,8 +240,8 @@
 		08D0353B15FEF448000042FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAE9945617B162A300FC1508 /* SystemConfiguration.framework */,
 				08AB2C7F1623F62C003A1C66 /* KiiSDK.framework */,
-				08016ADD1623BD310038E698 /* CBToolkit.framework */,
 				08D035A315FF0474000042FB /* QuartzCore.framework */,
 				08D0356115FEF516000042FB /* MobileCoreServices.framework */,
 				08D0353C15FEF448000042FB /* UIKit.framework */,
@@ -173,6 +249,241 @@
 				08D0354015FEF448000042FB /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CAE993EA17B1608000FC1508 /* KiiToolkit-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CAE993EB17B1609600FC1508 /* KiiToolkit.h */,
+				CAE993EC17B1609600FC1508 /* KTAppRater */,
+				CAE993EF17B1609600FC1508 /* KTLoginViewController */,
+				CAE993FD17B1609600FC1508 /* KTTableViewController */,
+				CAE9940217B1609600FC1508 /* KTUI */,
+				CAE9942317B1609600FC1508 /* KTUtilities */,
+			);
+			name = "KiiToolkit-iOS";
+			sourceTree = "<group>";
+		};
+		CAE993EC17B1609600FC1508 /* KTAppRater */ = {
+			isa = PBXGroup;
+			children = (
+				CAE993ED17B1609600FC1508 /* KTAppRater.h */,
+				CAE993EE17B1609600FC1508 /* KTAppRater.m */,
+			);
+			name = KTAppRater;
+			path = "KiiToolkit-iOS/KTAppRater";
+			sourceTree = "<group>";
+		};
+		CAE993EF17B1609600FC1508 /* KTLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CAE993F017B1609600FC1508 /* images */,
+				CAE993F717B1609600FC1508 /* KTForgotPasswordViewController.h */,
+				CAE993F817B1609600FC1508 /* KTForgotPasswordViewController.m */,
+				CAE993F917B1609600FC1508 /* KTLoginViewController.h */,
+				CAE993FA17B1609600FC1508 /* KTLoginViewController.m */,
+				CAE993FB17B1609600FC1508 /* KTRegistrationViewController.h */,
+				CAE993FC17B1609600FC1508 /* KTRegistrationViewController.m */,
+			);
+			name = KTLoginViewController;
+			path = "KiiToolkit-iOS/KTLoginViewController";
+			sourceTree = "<group>";
+		};
+		CAE993F017B1609600FC1508 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CAE993F117B1609600FC1508 /* kt_login_bg.png */,
+				CAE993F217B1609600FC1508 /* kt_login_bg@2x.png */,
+				CAE993F317B1609600FC1508 /* kt_login_close.png */,
+				CAE993F417B1609600FC1508 /* kt_login_close@2x.png */,
+				CAE993F517B1609600FC1508 /* kt_login_kii_logo.png */,
+				CAE993F617B1609600FC1508 /* kt_login_kii_logo@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		CAE993FD17B1609600FC1508 /* KTTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CAE993FE17B1609600FC1508 /* CKRefreshArrowView.h */,
+				CAE993FF17B1609600FC1508 /* CKRefreshArrowView.m */,
+				CAE9940017B1609600FC1508 /* KTTableViewController.h */,
+				CAE9940117B1609600FC1508 /* KTTableViewController.m */,
+			);
+			name = KTTableViewController;
+			path = "KiiToolkit-iOS/KTTableViewController";
+			sourceTree = "<group>";
+		};
+		CAE9940217B1609600FC1508 /* KTUI */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9940317B1609600FC1508 /* KTAlert */,
+				CAE9940B17B1609600FC1508 /* KTButton */,
+				CAE9940E17B1609600FC1508 /* KTCircularProgressIndicator */,
+				CAE9941117B1609600FC1508 /* KTImageView */,
+				CAE9941417B1609600FC1508 /* KTLoader */,
+				CAE9941C17B1609600FC1508 /* KTProgressBar */,
+				CAE9941F17B1609600FC1508 /* KTTextField */,
+				CAE9942217B1609600FC1508 /* KTUI.h */,
+			);
+			name = KTUI;
+			path = "KiiToolkit-iOS/KTUI";
+			sourceTree = "<group>";
+		};
+		CAE9940317B1609600FC1508 /* KTAlert */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9940417B1609600FC1508 /* KTAlert.h */,
+				CAE9940517B1609600FC1508 /* KTAlert.m */,
+				CAE9940617B1609600FC1508 /* KTAlertType */,
+			);
+			path = KTAlert;
+			sourceTree = "<group>";
+		};
+		CAE9940617B1609600FC1508 /* KTAlertType */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9940717B1609600FC1508 /* KTAlertBar.h */,
+				CAE9940817B1609600FC1508 /* KTAlertBar.m */,
+				CAE9940917B1609600FC1508 /* KTAlertToast.h */,
+				CAE9940A17B1609600FC1508 /* KTAlertToast.m */,
+			);
+			path = KTAlertType;
+			sourceTree = "<group>";
+		};
+		CAE9940B17B1609600FC1508 /* KTButton */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9940C17B1609600FC1508 /* KTButton.h */,
+				CAE9940D17B1609600FC1508 /* KTButton.m */,
+			);
+			path = KTButton;
+			sourceTree = "<group>";
+		};
+		CAE9940E17B1609600FC1508 /* KTCircularProgressIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9940F17B1609600FC1508 /* KTCircularProgressIndicator.h */,
+				CAE9941017B1609600FC1508 /* KTCircularProgressIndicator.m */,
+			);
+			path = KTCircularProgressIndicator;
+			sourceTree = "<group>";
+		};
+		CAE9941117B1609600FC1508 /* KTImageView */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9941217B1609600FC1508 /* KTImageView.h */,
+				CAE9941317B1609600FC1508 /* KTImageView.m */,
+			);
+			path = KTImageView;
+			sourceTree = "<group>";
+		};
+		CAE9941417B1609600FC1508 /* KTLoader */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9941517B1609600FC1508 /* images */,
+				CAE9941A17B1609600FC1508 /* KTLoader.h */,
+				CAE9941B17B1609600FC1508 /* KTLoader.m */,
+			);
+			path = KTLoader;
+			sourceTree = "<group>";
+		};
+		CAE9941517B1609600FC1508 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9941617B1609600FC1508 /* failure-indicator.png */,
+				CAE9941717B1609600FC1508 /* failure-indicator@2x.png */,
+				CAE9941817B1609600FC1508 /* success-indicator.png */,
+				CAE9941917B1609600FC1508 /* success-indicator@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		CAE9941C17B1609600FC1508 /* KTProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9941D17B1609600FC1508 /* KTProgressIndicator.h */,
+				CAE9941E17B1609600FC1508 /* KTProgressIndicator.m */,
+			);
+			path = KTProgressBar;
+			sourceTree = "<group>";
+		};
+		CAE9941F17B1609600FC1508 /* KTTextField */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9942017B1609600FC1508 /* KTTextField.h */,
+				CAE9942117B1609600FC1508 /* KTTextField.m */,
+			);
+			path = KTTextField;
+			sourceTree = "<group>";
+		};
+		CAE9942317B1609600FC1508 /* KTUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9942417B1609600FC1508 /* Categories */,
+				CAE9943417B1609600FC1508 /* KTNetworkingUtilities.h */,
+				CAE9943517B1609600FC1508 /* KTNetworkingUtilities.m */,
+				CAE9943617B1609600FC1508 /* KTUtilities.h */,
+			);
+			name = KTUtilities;
+			path = "KiiToolkit-iOS/KTUtilities";
+			sourceTree = "<group>";
+		};
+		CAE9942417B1609600FC1508 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9942517B1609600FC1508 /* NSMutableArray */,
+				CAE9942817B1609600FC1508 /* NSString */,
+				CAE9942B17B1609600FC1508 /* UIColor */,
+				CAE9942E17B1609600FC1508 /* UIImage */,
+				CAE9943117B1609600FC1508 /* UIView */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		CAE9942517B1609600FC1508 /* NSMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9942617B1609600FC1508 /* NSMutableArray+KTUtilities.h */,
+				CAE9942717B1609600FC1508 /* NSMutableArray+KTUtilities.m */,
+			);
+			path = NSMutableArray;
+			sourceTree = "<group>";
+		};
+		CAE9942817B1609600FC1508 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9942917B1609600FC1508 /* NSString+KTUtilities.h */,
+				CAE9942A17B1609600FC1508 /* NSString+KTUtilities.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		CAE9942B17B1609600FC1508 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9942C17B1609600FC1508 /* UIColor+KTUtilities.h */,
+				CAE9942D17B1609600FC1508 /* UIColor+KTUtilities.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		CAE9942E17B1609600FC1508 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9942F17B1609600FC1508 /* UIImage+KTUtilities.h */,
+				CAE9943017B1609600FC1508 /* UIImage+KTUtilities.m */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		CAE9943117B1609600FC1508 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				CAE9943217B1609600FC1508 /* UIView+KTUtilities.h */,
+				CAE9943317B1609600FC1508 /* UIView+KTUtilities.m */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,8 +537,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08AA649716084B0500FDD06E /* LoginViewController.xib in Resources */,
 				08AA64B316084B4500FDD06E /* blue_normal.png in Resources */,
+				CAE9943817B1609600FC1508 /* kt_login_bg.png in Resources */,
 				08AA64B416084B4500FDD06E /* blue_normal@2x.png in Resources */,
 				08AA64B516084B4500FDD06E /* blue_pressed.png in Resources */,
 				08AA64B616084B4500FDD06E /* blue_pressed@2x.png in Resources */,
@@ -237,11 +548,19 @@
 				08AA64BA16084B4500FDD06E /* grey_pressed@2x.png in Resources */,
 				08AA64BB16084B4500FDD06E /* orange_normal.png in Resources */,
 				08AA64BC16084B4500FDD06E /* orange_normal@2x.png in Resources */,
+				CAE9944917B1609600FC1508 /* failure-indicator.png in Resources */,
+				CAE9943D17B1609600FC1508 /* kt_login_kii_logo@2x.png in Resources */,
 				08AA64BD16084B4500FDD06E /* orange_pressed.png in Resources */,
+				CAE9943A17B1609600FC1508 /* kt_login_close.png in Resources */,
+				CAE9943B17B1609600FC1508 /* kt_login_close@2x.png in Resources */,
+				CAE9943C17B1609600FC1508 /* kt_login_kii_logo.png in Resources */,
+				CAE9944B17B1609600FC1508 /* success-indicator.png in Resources */,
 				08AA64BE16084B4500FDD06E /* orange_pressed@2x.png in Resources */,
+				CAE9943917B1609600FC1508 /* kt_login_bg@2x.png in Resources */,
 				08AA64D916084BD600FDD06E /* InfoPlist.strings in Resources */,
-				08AA64DA16084BD600FDD06E /* ViewController.xib in Resources */,
 				08AA64DB16084BD600FDD06E /* HelloKii-Info.plist in Resources */,
+				CAE9944C17B1609600FC1508 /* success-indicator@2x.png in Resources */,
+				CAE9944A17B1609600FC1508 /* failure-indicator@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,10 +571,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE9944317B1609600FC1508 /* KTAlert.m in Sources */,
 				08AA648616084B0500FDD06E /* AppDelegate.m in Sources */,
-				08AA649616084B0500FDD06E /* LoginViewController.m in Sources */,
+				CAE9944517B1609600FC1508 /* KTAlertToast.m in Sources */,
+				CAE9945217B1609600FC1508 /* UIColor+KTUtilities.m in Sources */,
+				CAE9945317B1609600FC1508 /* UIImage+KTUtilities.m in Sources */,
+				CAE9945017B1609600FC1508 /* NSMutableArray+KTUtilities.m in Sources */,
+				CAE9944117B1609600FC1508 /* CKRefreshArrowView.m in Sources */,
+				CAE9945117B1609600FC1508 /* NSString+KTUtilities.m in Sources */,
+				CAE9944817B1609600FC1508 /* KTImageView.m in Sources */,
+				CAE9944017B1609600FC1508 /* KTRegistrationViewController.m in Sources */,
+				CAE9944D17B1609600FC1508 /* KTLoader.m in Sources */,
+				CAE9944617B1609600FC1508 /* KTButton.m in Sources */,
+				CAE9943717B1609600FC1508 /* KTAppRater.m in Sources */,
 				08AA649F16084B0500FDD06E /* ViewController.m in Sources */,
+				CAE9944217B1609600FC1508 /* KTTableViewController.m in Sources */,
+				CAE9945517B1609600FC1508 /* KTNetworkingUtilities.m in Sources */,
+				CAE9943E17B1609600FC1508 /* KTForgotPasswordViewController.m in Sources */,
+				CAE9944F17B1609600FC1508 /* KTTextField.m in Sources */,
 				08AA64D816084BD600FDD06E /* main.m in Sources */,
+				CAE9943F17B1609600FC1508 /* KTLoginViewController.m in Sources */,
+				CAE9944E17B1609600FC1508 /* KTProgressIndicator.m in Sources */,
+				CAE9944417B1609600FC1508 /* KTAlertBar.m in Sources */,
+				CAE9945417B1609600FC1508 /* UIView+KTUtilities.m in Sources */,
+				CAE9944717B1609600FC1508 /* KTCircularProgressIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,14 +607,6 @@
 				08AA64D416084BD600FDD06E /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		08AA64D516084BD600FDD06E /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				08AA64D616084BD600FDD06E /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
