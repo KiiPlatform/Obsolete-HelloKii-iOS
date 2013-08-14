@@ -155,6 +155,9 @@
     // if the user is logged in
     if([KiiUser loggedIn]) {
         
+        // Show our user
+        NSLog(@"Logged in user: %@", [KiiUser currentUser].uuid);
+        
         // load the table
         // this defines the query
         KiiQuery *query = [KiiQuery queryWithClause:nil];
