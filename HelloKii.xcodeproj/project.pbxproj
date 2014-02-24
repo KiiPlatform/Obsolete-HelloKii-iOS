@@ -62,6 +62,8 @@
 		CAE9945417B1609600FC1508 /* UIView+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9943317B1609600FC1508 /* UIView+KTUtilities.m */; };
 		CAE9945517B1609600FC1508 /* KTNetworkingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9943517B1609600FC1508 /* KTNetworkingUtilities.m */; };
 		CAE9945717B162A300FC1508 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE9945617B162A300FC1508 /* SystemConfiguration.framework */; };
+		EA83EEC618BB608D00523BFD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA83EEC518BB608D00523BFD /* Accounts.framework */; };
+		EA83EEC818BB609600523BFD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA83EEC718BB609600523BFD /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +150,8 @@
 		CAE9943517B1609600FC1508 /* KTNetworkingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTNetworkingUtilities.m; sourceTree = "<group>"; };
 		CAE9943617B1609600FC1508 /* KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTUtilities.h; sourceTree = "<group>"; };
 		CAE9945617B162A300FC1508 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EA83EEC518BB608D00523BFD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		EA83EEC718BB609600523BFD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA83EEC818BB609600523BFD /* Social.framework in Frameworks */,
+				EA83EEC618BB608D00523BFD /* Accounts.framework in Frameworks */,
 				CAE9945717B162A300FC1508 /* SystemConfiguration.framework in Frameworks */,
 				08D0356215FEF516000042FB /* MobileCoreServices.framework in Frameworks */,
 				08D0353D15FEF448000042FB /* UIKit.framework in Frameworks */,
@@ -240,6 +246,8 @@
 		08D0353B15FEF448000042FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA83EEC718BB609600523BFD /* Social.framework */,
+				EA83EEC518BB608D00523BFD /* Accounts.framework */,
 				CAE9945617B162A300FC1508 /* SystemConfiguration.framework */,
 				08AB2C7F1623F62C003A1C66 /* KiiSDK.framework */,
 				08D035A315FF0474000042FB /* QuartzCore.framework */,
