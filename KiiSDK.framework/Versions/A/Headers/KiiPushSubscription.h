@@ -12,6 +12,10 @@
 
 typedef void(^KiiSubscribableBlock)(id<KiiSubscribable> subscribable,BOOL result,NSError *error);
 typedef void (^KiiPushSubscriptionBlock)(KiiPushSubscription *subscription,NSError *error);
+
+/**
+This class is responsible for the subscription of push notification.
+*/
 @interface KiiPushSubscription : NSObject
 
 /** Asynchronously subscribe a subscribable object using block.

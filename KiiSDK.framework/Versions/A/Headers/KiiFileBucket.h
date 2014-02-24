@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "KiiPushSubscription.h"
+#import "KiiBaseBucket.h"
+
 @class KiiFile, KiiUser, KiiQuery, KiiACL, KiiFileBucket,KiiRTransferManager;
 
 typedef void (^KiiFileQueryResultBlock)(KiiQuery *query, KiiFileBucket *bucket, NSArray *results, NSError *error);
 typedef void (^KiiFileBucketBlock)(KiiFileBucket *bucket, NSError *error);
 
 /** A reference to a bucket within a user's scope which contains <KiiFile> objects */
-@interface KiiFileBucket : NSObject <KiiSubscribable>
+@interface KiiFileBucket : KiiBaseBucket <KiiSubscribable>
 
 
 /** Get the ACL handle for this bucket. Any <KiiACLEntry> objects added or revoked from this ACL object will be appended to/removed from the server on ACL save. */
