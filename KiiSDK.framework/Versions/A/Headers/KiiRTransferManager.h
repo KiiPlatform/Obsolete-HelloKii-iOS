@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-@class KiiRTransferManager;
+@class KiiRTransferManager, KiiUser;
 typedef void(^KiiRTransferManagerBlock)(KiiRTransferManager *transferManager,NSArray *uploadEntries, NSError *error);
 @protocol KiiRTransfer;
-@class KiiFileBucket;
+
+/**
+ Manages status of resumable transfer.
+*/
 @interface KiiRTransferManager : NSObject
 
 /** Synchronously get upload entries. This is blocking method.
+
  This API returns uploader entries that status is ONGOING and SUSPENDED. (NOENTRY is not included)
  
  @param error An NSError object, set to nil, to test for errors
@@ -23,8 +27,9 @@ typedef void(^KiiRTransferManagerBlock)(KiiRTransferManager *transferManager,NSA
 
 
 /**Synchronously get download entries.This is blocking method.
+
  This API returns download entries that status is ONGOING and SUSPENDED. (NOENTRY is not included)
- 
+
  @param error An NSError object, set to nil, to test for errors
  @return NSArray download entries array that status is ONGOING and SUSPENDED.
  */

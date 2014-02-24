@@ -177,6 +177,19 @@ typedef void (^KiiGroupBlock)(KiiGroup *group, NSError *error);
  */
 - (void) getOwner:(id)delegate withCallback:(SEL)callback;
 
+/** Returns the owner of this group if this group holds the information of owner.
+
+ Group will holds the information of owner when "saving group on cloud" or "retrieving group info/owner from cloud".
+ The cache will not be shared among the different instances of KiiGroup.
+
+ @return A <KiiUser> object who owns this group, nil if this group doesn't hold the information of owner yet.
+ @note This API will not access to server. To update the group owner information on cloud, please call KiiGroup refresh or getOwner methods.
+ @warning This API does not return all the properties of the owner. To get all owner properties, KiiUser refresh is necessary.
+ @see getOwnerSynchronous:
+ @see getOwnerWithBlock:
+ @see getOwner:withCallback:
+ */
+- (KiiUser *)getCachedOwner;
 
 /** Asynchronously updates the local group's data with the group data on the server
  

@@ -62,6 +62,11 @@
 		CAE9945417B1609600FC1508 /* UIView+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9943317B1609600FC1508 /* UIView+KTUtilities.m */; };
 		CAE9945517B1609600FC1508 /* KTNetworkingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE9943517B1609600FC1508 /* KTNetworkingUtilities.m */; };
 		CAE9945717B162A300FC1508 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE9945617B162A300FC1508 /* SystemConfiguration.framework */; };
+		EA83EEC618BB608D00523BFD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA83EEC518BB608D00523BFD /* Accounts.framework */; };
+		EA83EEC818BB609600523BFD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA83EEC718BB609600523BFD /* Social.framework */; };
+		EA83EECF18BB71AD00523BFD /* KTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA83EECE18BB71AD00523BFD /* KTDevice.m */; };
+		EA83EED318BB722800523BFD /* NSArray+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EA83EED118BB722800523BFD /* NSArray+KTUtilities.m */; };
+		EA83EED518BB723400523BFD /* NSDate+KTUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = EA83EED418BB723400523BFD /* NSDate+KTUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +153,14 @@
 		CAE9943517B1609600FC1508 /* KTNetworkingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTNetworkingUtilities.m; sourceTree = "<group>"; };
 		CAE9943617B1609600FC1508 /* KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTUtilities.h; sourceTree = "<group>"; };
 		CAE9945617B162A300FC1508 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EA83EEC518BB608D00523BFD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		EA83EEC718BB609600523BFD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		EA83EECD18BB71AD00523BFD /* KTDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTDevice.h; sourceTree = "<group>"; };
+		EA83EECE18BB71AD00523BFD /* KTDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTDevice.m; sourceTree = "<group>"; };
+		EA83EED018BB722800523BFD /* NSArray+KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+KTUtilities.h"; path = "Categories/NSArray/NSArray+KTUtilities.h"; sourceTree = "<group>"; };
+		EA83EED118BB722800523BFD /* NSArray+KTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+KTUtilities.m"; path = "Categories/NSArray/NSArray+KTUtilities.m"; sourceTree = "<group>"; };
+		EA83EED218BB722800523BFD /* NSDate+KTUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+KTUtilities.h"; path = "Categories/NSDate/NSDate+KTUtilities.h"; sourceTree = "<group>"; };
+		EA83EED418BB723400523BFD /* NSDate+KTUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+KTUtilities.m"; path = "Categories/NSDate/NSDate+KTUtilities.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +168,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA83EEC818BB609600523BFD /* Social.framework in Frameworks */,
+				EA83EEC618BB608D00523BFD /* Accounts.framework in Frameworks */,
 				CAE9945717B162A300FC1508 /* SystemConfiguration.framework in Frameworks */,
 				08D0356215FEF516000042FB /* MobileCoreServices.framework in Frameworks */,
 				08D0353D15FEF448000042FB /* UIKit.framework in Frameworks */,
@@ -240,6 +255,8 @@
 		08D0353B15FEF448000042FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA83EEC718BB609600523BFD /* Social.framework */,
+				EA83EEC518BB608D00523BFD /* Accounts.framework */,
 				CAE9945617B162A300FC1508 /* SystemConfiguration.framework */,
 				08AB2C7F1623F62C003A1C66 /* KiiSDK.framework */,
 				08D035A315FF0474000042FB /* QuartzCore.framework */,
@@ -420,6 +437,12 @@
 		CAE9942317B1609600FC1508 /* KTUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				EA83EED418BB723400523BFD /* NSDate+KTUtilities.m */,
+				EA83EED018BB722800523BFD /* NSArray+KTUtilities.h */,
+				EA83EED118BB722800523BFD /* NSArray+KTUtilities.m */,
+				EA83EED218BB722800523BFD /* NSDate+KTUtilities.h */,
+				EA83EECD18BB71AD00523BFD /* KTDevice.h */,
+				EA83EECE18BB71AD00523BFD /* KTDevice.m */,
 				CAE9942417B1609600FC1508 /* Categories */,
 				CAE9943417B1609600FC1508 /* KTNetworkingUtilities.h */,
 				CAE9943517B1609600FC1508 /* KTNetworkingUtilities.m */,
@@ -571,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA83EED318BB722800523BFD /* NSArray+KTUtilities.m in Sources */,
 				CAE9944317B1609600FC1508 /* KTAlert.m in Sources */,
 				08AA648616084B0500FDD06E /* AppDelegate.m in Sources */,
 				CAE9944517B1609600FC1508 /* KTAlertToast.m in Sources */,
@@ -591,8 +615,10 @@
 				CAE9944F17B1609600FC1508 /* KTTextField.m in Sources */,
 				08AA64D816084BD600FDD06E /* main.m in Sources */,
 				CAE9943F17B1609600FC1508 /* KTLoginViewController.m in Sources */,
+				EA83EECF18BB71AD00523BFD /* KTDevice.m in Sources */,
 				CAE9944E17B1609600FC1508 /* KTProgressIndicator.m in Sources */,
 				CAE9944417B1609600FC1508 /* KTAlertBar.m in Sources */,
+				EA83EED518BB723400523BFD /* NSDate+KTUtilities.m in Sources */,
 				CAE9945417B1609600FC1508 /* UIView+KTUtilities.m in Sources */,
 				CAE9944717B1609600FC1508 /* KTCircularProgressIndicator.m in Sources */,
 			);

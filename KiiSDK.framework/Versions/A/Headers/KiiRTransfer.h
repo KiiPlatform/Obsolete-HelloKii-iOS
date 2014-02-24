@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "KiiRTransferInfo.h"
 #import "KiiFile.h"
+#import "FileHolder.h"
+
 @protocol KiiRTransfer;
 
 
@@ -24,6 +26,27 @@ typedef void(^KiiRTransferBlock)(id<KiiRTransfer> transferObject, NSError *error
  @return KiiRTransferInfo an object contains information regarding transfer process.
  */
 -(KiiRTransferInfo*) info;
+
+/** Synchronously proceed transfer process. This is blocking method.
+ KiiRTransferBlock is a block defined as: typedef void(^KiiRTransferBlock)(id<KiiRTransfer> transferObject, NSError *error);
+
+    NSError *error = nil;
+    [aTransfer transferWithProgressBlock:^(id <KiiRTransfer> transferObject, NSError *error) {
+        if (nil == error) {
+            KiiRTransferInfo *info = [transferObject info];
+            NSLog(@"%d", [info completedSizeInBytes]);
+        }
+    } andError:&error];
+
+    if (error == nil) {
+        NSLog(@"Transfer is completed.");
+    }
+
+ @param KiiRTransferBlock progress block, can be nil.
+ @param error An NSError object, set to nil, to test for errors.
+ @warning This API access to server. Should not be executed in UI/Main thread.
+ */
+-(void) transferWithProgressBlock:(KiiRTransferBlock) progress andError:(NSError**) error;
 
 /** Asynchronously proceed transfer process using block.
  This is non-blocking method.
@@ -46,8 +69,9 @@ typedef void(^KiiRTransferBlock)(id<KiiRTransfer> transferObject, NSError *error
 -(void) transferWithProgressBlock:(KiiRTransferBlock) progress andCompletionBlock:(KiiRTransferBlock) completion;
 
 
-/** Synchronously suspend transfer process.
- This is blocking method.
+/** Suspend transfer process.
+ Does not blocks until the completion of suspend.
+ Completion of suspend is notified in completion block. If the transfer is on the way of sending a chunk, that chunk will be transferred and progress block is called before suspend notified.
  @param error An NSError object, set to nil, to test for errors.
  */
 -(void) suspend:(NSError**) error;
@@ -59,4 +83,8 @@ typedef void(^KiiRTransferBlock)(id<KiiRTransfer> transferObject, NSError *error
  */
 -(void) terminate:(NSError**) error;
 
+/** Get the File Holder instance which this transfer is bounded.
+ @return fileHolder a KiiObject or KiiFile instance which this transfer is bounded.
+ */
+-(id<FileHolder>) fileHolder;
 @end

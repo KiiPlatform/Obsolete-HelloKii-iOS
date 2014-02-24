@@ -27,7 +27,7 @@
  - *304* - Invalid password format. Password must be 4-50 printable ASCII characters.
  - *305* - Invalid email format. Email must be a valid address
  - *306* - Invalid user object. Please ensure the credentials were entered properly
- - *307* - Invalid username format. The username must be 5-50 alphanumeric characters - the first character must be a letter
+ - *307* - Invalid username format. The username must be 3-64 alphanumeric characters - the first character must be a letter
  - *308* - Invalid phone format. The phone number must be numeric between 7 and 20 digits, and it can begin with '+'
  - *309* - Unable to verify account. Please ensure the verification code provided is correct
  - *310* - Invalid displayname format. The displayname length is 4-50 chars (not byte), and allow Multi-Byte input.
@@ -37,6 +37,9 @@
  - *314* - The request could not be made - the key associated with the social network is invalid
  - *315* - Invalid country code.
  - *316* - Invalid local phone format. The phone number numerical and must be at least 7 digits
+ - *317* - Invalid credentials, please check whether the credentials associated with social network is valid
+ - *318* - Social network account has been already linked.
+ - *319* - Social network account is not linked.
  
  <h3>File API Errors (4xx)</h3>
  - *401* - Unable to delete file from cloud
@@ -60,18 +63,19 @@
  - *512* - The object you are saving is older than what is on the server. Use one of the KiiObject#save:forced: methods to forcibly override data on the server
  - *513* - The group name provided is not valid. Ensure it is alphanumeric and more than 0 characters in length
  - *514* - At least one of the ACL entries saved to an object failed. Please note there may also have been one or more successful entries
+ - *515* - Bucket parent(user/group) of the bucket does not exist in the cloud.
+ - *516* - The object you are trying to operate is illegal state. If you want to update KiiObject, please call <[KiiObject refreshSynchronous:]> before call this method.
 
  <h3>Query Errors (6xx)</h3>
  - *601* - No more query results exist
  - *602* - Query limit set too high
  - *603* - Query clauses is empty. Make sure "OR" and/or "AND" clauses have at least one correct sub-clauses
- 
- 
+
  <h3>Push Notification Errors (7xx)</h3>
  - *701* - Push installation error. Installation already exist
  - *702* - Push subscription already exists
  - *703* - Push subscription does not exist
- - *704* - Topic is already exist
+ - *704* - Topic already exists
  - *705* - Topic does not exist
  - *706* - Invalid push message data
  - *707* - APNS field is required
@@ -79,6 +83,8 @@
  - *709* - Device token is not set
  - *710* - Push installation does not exist
  - *711* - Topic ID is invalid. Topic ID must be alphanumeric character and between 1-64 length
+ - *712* - GCM payload key contains google reserved words
+ - *713* - Topic parent(user/group) does not exist in the cloud.
 
  <h3>Resumable Transfer Errors (8xx)</h3>
  - *801* - Resumable transfer object has already transferred completely
@@ -96,7 +102,17 @@
  - *813* - Object body range not satisfiable. Please try to transfer using another task.
  - *814* - File path is not writable.
  - *815* - Invalid destination file, file range is not assured
+ - *816* - Unable to operate transfer manager. The transfer manager can not operate since current user is nil or different from the user who instantiate.
+ 
+ <h3>AB Testing Errors (9xx)</h3>
+ - *901* - Experiment with specified ID is not found.
+ - *902* - The experiment is in draft. you need to run experiment before starting A/B testing.
+ - *903* - The experiment has been paused.
+ - *904* - The experiment has been terminated with no specified variation.
+ - *905* - Variation with specified name is not found.
+ - *906* - Failed to apply variation due to no user logged in.
  */
+
 @interface KiiError : NSError
 
 + (NSError*) errorWithCode:(NSString*)code andMessage:(NSString*)message;
@@ -145,7 +161,7 @@
 /* Invalid email address format or phone number format. A userIdentifier must be one of the two */
 + (NSError*) invalidUserIdentifier;
 
-/* Invalid username format. The username must be 5-50 alphanumeric characters - the first character must be a letter. */
+/* Invalid username format. The username must be 3-64 alphanumeric characters - the first character must be a letter. */
 + (NSError*) invalidUsername;
 
 /* Invalid user object. Please ensure the credentials were entered properly */
@@ -174,7 +190,14 @@
 /* The request could not be made - the key associated with the social network is invalid. */
 + (NSError*) invalidSocialNetworkKey;
 
+/* Invalid credentials, please check whether the credentials associated with social network is valid */
++ (NSError*) invalidCredentials;
 
+/* Social network account has been already linked */
++ (NSError*) socialAccountAlreadyLinked;
+
+/* Social network account has is not linked */
++ (NSError*) socialAccountNotLinked;
 
 /* File API Errors (4xx) */
 
@@ -235,7 +258,11 @@
 /* At least one of the ACL entries saved to an object failed. Please note there may also have been one or more successful entries. */
 + (NSError*) partialACLFailure;
 
+/* Bucket parent of the bucket(user/group) does not exist in the cloud. */
++ (NSError *)bucketParentNotExistInCloud;
 
+/* The object you are trying to operate is illegal state. If you want to update KiiObject, please call <[KiiObject refreshSynchronous:]> before call this method. */
++ (NSError *)illegalStateObject;
 
 /* Query Errors (6xx) */
 
@@ -260,7 +287,7 @@
 /*Push subscription does not exist*/
 + (NSError*) subscriptionNotExist;
 
-/* Topic is already exist */
+/* Topic already exists */
 + (NSError*) topicAlreadyExist;
 
 /* Topic does not exist */
@@ -283,6 +310,12 @@
 
 /* Topic ID is invalid. Topic ID must be alphanumeric character and between 1-64 length.*/
 + (NSError*) invalidTopicID;
+
+/* GCM payload key contains google reserved words.*/
++ (NSError*) containsGCMReservedKey;
+
+/* Topic parent(user/group) does not exist in the cloud.*/
++ (NSError*) topicParentNotExistInCloud;
 
 /* Resumable Transfer Errors (8xx) */
 
@@ -330,4 +363,32 @@
 
 /* Invalid destination file, file range is not assured */
 + (NSError*) fileRangeNotValid;
+
+/* Unable to operate transfer manager. The transfer manager can not operate since current user is nil or different from the user who instantiate. */
++ (NSError *)unableToOperateTransferManager;
+
+/**Experiment with specified ID is not found.
+ */
++ (NSError*) experimentNotFound;
+
+/** The experiment has been terminated with no specified variation.
+ */
++ (NSError*) experimentTerminatedWithNoVariation;
+
+/** The experiment has been paused.
+ */
++ (NSError*) experimentPaused;
+
+/** The experiment is in draft. you need to run experiment before starting A/B testing.
+ */
++ (NSError*) experimentIsInDraft;
+
+/** Variation with specified name is not found.
+ */
++ (NSError*) variationNotFound;
+
+/** Failed to apply variation due to no user logged in.
+ */
++ (NSError*) failedToApplyVariationDueToNoUserLoggedIn;
+
 @end

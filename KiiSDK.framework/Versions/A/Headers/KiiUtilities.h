@@ -20,4 +20,13 @@
 + (void)performRequestMethodAsync:(void (^)())block;
 
 + (void)performRequestMethodSynchronous:(void (^)())block;
+
++ (NSString *)generateUUID;
+
++ (NSString *)currentTimeMillis;
+
++ (BOOL)isNilOrEmptyString:(NSString *)testString;
+
++ (void) _callMethod:(SEL)method onDelegate:(id)delegate waitUntilDone : (BOOL) shouldWait withFirstObjects:(id)firstObj andArguments:(va_list)args;
+
 @end

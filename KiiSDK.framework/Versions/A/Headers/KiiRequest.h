@@ -29,15 +29,6 @@ typedef enum { GET, PUT, POST, FORMPOST, DELETE , HEAD } HttpMethods;
     NSString *filePath;
     NSData *_fileData;
     NSString *downloadPath;
-    
-    BOOL complete;
-    NSMutableData *responseData;
-    NSError *responseError;
-    NSInteger responseCode;
-    NSDictionary *responseHeaders;
-    long long responseExpectedSize;
-    long long uploadFileSize;
-    
 }
 
 @property (nonatomic, strong) NSValue *operation;
@@ -64,6 +55,11 @@ typedef enum { GET, PUT, POST, FORMPOST, DELETE , HEAD } HttpMethods;
 @property (nonatomic, assign) BOOL isChunkUpload;
 @property (nonatomic, assign) BOOL isChunkDownload;
 @property (nonatomic, assign) BOOL isObjectBodyMetadata;
+@property (nonatomic, assign) long long uploadFileSize;
+
+
+
+@property (nonatomic,copy,readonly) NSDictionary *responseHeaders;
 
 - (id) initWithPath:(NSString*)path andApp:(BOOL)appInPath;
 - (id) initWithPath:(NSString*)path;
@@ -73,5 +69,7 @@ typedef enum { GET, PUT, POST, FORMPOST, DELETE , HEAD } HttpMethods;
 - (NSDictionary*) makeSynchronousRequest:(NSError**)sendError andResponse:(int*)response withETag:(NSString**) etag discardBody:(BOOL)discardBody;
 - (NSDictionary*) makeSynchronousRequest:(NSError**)sendError andResponse:(int*)response discardBody:(BOOL)discardBody;
 - (NSDictionary*) makeSynchronousRequest:(NSError**)sendError;
+-(void) responseDataReceived:(NSMutableData *)data withExpectedSize:(long long) size;
+-(void) requestDataSend:(NSInteger) totalBytesWritten;
 
 @end
